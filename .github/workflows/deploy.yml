@@ -24,14 +24,14 @@ jobs:
       - name: Build the project
         run: npm run build
 
-      - name: Deploy to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist
-          server-dir: public_html/
-          protocol: ftp
-          dry-run: false
-          dangerous-clean-slate: true   # deletes everything in server-dir before uploading
+     - name: Deploy to Hostinger via FTP
+  uses: samkirkland/ftp-deploy-action@v4.4.0
+  with:
+    server: ${{ secrets.FTP_SERVER }}
+    username: ${{ secrets.FTP_USERNAME }}
+    password: ${{ secrets.FTP_PASSWORD }}
+    local-dir: ./dist
+    server-dir: public_html/
+    protocol: ftp
+    dry-run: false
+    dangerous-clean-slate: true   # deletes everything in server-dir before uploading
