@@ -1,0 +1,176 @@
+import React from 'react';
+import { GraduationCap, BookOpen, Clock, Users, CheckCircle, Award } from 'lucide-react';
+import AdmissionForm from '../components/AdmissionForm';
+
+const AdmissionAssistance: React.FC = () => {
+  const programs = [
+    {
+      name: 'B.Ed. (Bachelor of Education)',
+      description: 'Foundation program for aspiring teachers with comprehensive teaching methodology and practice.',
+      duration: '2 Years',
+      eligibility: 'Graduate in any discipline'
+    },
+    {
+      name: 'M.Ed. (Master of Education)',
+      description: 'Advanced program for educational leadership, curriculum development, and educational research.',
+      duration: '2 Years',
+      eligibility: 'B.Ed. with minimum 50% marks'
+    }
+  ];
+
+  const services = [
+    {
+      icon: BookOpen,
+      title: 'Admission Guidance',
+      description: 'Expert counseling for program selection, eligibility assessment, and application process.'
+    },
+    {
+      icon: Users,
+      title: 'Course Preparation',
+      description: 'Comprehensive preparation materials and guidance for entrance examinations.'
+    },
+    {
+      icon: Clock,
+      title: 'Flexible Classes',
+      description: 'Evening and weekend classes designed for working professionals.'
+    },
+    {
+      icon: Award,
+      title: 'Study Materials',
+      description: 'Complete books, notes, and digital resources for effective learning.'
+    }
+  ];
+
+  const benefits = [
+    'No disruption to your current job',
+    'Weekend and evening class schedules',
+    'Comprehensive study materials provided',
+    'Expert faculty with industry experience',
+    'Exam preparation and guidance',
+    'Post-graduation placement assistance',
+    'Affordable fee structure with installment options'
+  ];
+
+  return (
+    <div className="min-h-screen">
+      {/* Header Section */}
+      <section className="bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 text-white py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div className="absolute top-10 left-10 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-64 h-64 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center relative z-10">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Admission Assistance
+              <span className="block text-2xl md:text-3xl text-purple-400 mt-2 font-semibold">
+                "Your Future Starts Here"
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-indigo-100 max-w-4xl mx-auto leading-relaxed">
+              Expert guidance for B.Ed. and M.Ed. admissions with flexible programs designed for working professionals. 
+              Complete your education without disrupting your career.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Programs Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Programs We Support</h2>
+            <p className="text-xl text-gray-600">Comprehensive assistance for premier education programs.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {programs.map((program, index) => (
+              <div key={index} className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-8 hover:shadow-lg transition-shadow duration-300">
+                <div className="flex items-center mb-4">
+                  <GraduationCap className="h-8 w-8 text-blue-600 mr-3" />
+                  <h3 className="text-2xl font-bold text-gray-900">{program.name}</h3>
+                </div>
+                <p className="text-gray-700 mb-6">{program.description}</p>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-sm text-gray-600">Duration</p>
+                    <p className="font-semibold text-gray-900">{program.duration}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Eligibility</p>
+                    <p className="font-semibold text-gray-900">{program.eligibility}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Support Services</h2>
+            <p className="text-xl text-gray-600">End-to-end assistance for your educational journey.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <div key={index} className="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-600 text-white rounded-full mb-4">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{service.title}</h3>
+                  <p className="text-gray-600 text-sm">{service.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img
+                src="https://images.pexels.com/photos/5212700/pexels-photo-5212700.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Students studying for B.Ed. and M.Ed."
+                className="w-full rounded-lg shadow-xl"
+              />
+            </div>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Why Choose Our Assistance?
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                We understand the challenges of balancing work and education. Our flexible approach 
+                ensures you can complete your degree without compromising your career.
+              </p>
+              <div className="space-y-4">
+                {benefits.map((benefit, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AdmissionForm />
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default AdmissionAssistance;
