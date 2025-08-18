@@ -3,32 +3,35 @@ name: Build and Deploy to Hostinger via FTP
 on:
   push:
     branches:
-      - main  # runs only when code is pushed to the main branch
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout the code
-      uses: actions/checkout@v3
+      - name: Checkout the code
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'  # or your version
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Build the project
-      run: npm run build  # assumes your build output goes to /dist
+      - name: Build the project
+        run: npm run build
 
-    - name: Deploy to Hostinger via FTP
-      uses: samkirkland/ftp-deploy-action@v4.4.0
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist     # or ./build — the folder created after build
-        server-dir: public_html/  # adjust if you're deploying elsewhere
+      - name: Deploy to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist
+          server-dir: public_html/
+          protocol: ftp
+          dry-run: false
+          dangerous-clean-slate: true   # deletes everything in server-dir before uploading
