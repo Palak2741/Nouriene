@@ -1,0 +1,60 @@
+name: Build and Deploy to Web Server
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      # If you need to package extra files, add steps here.
+      # For simple static/frontend, the dist/ is enough.
+
+      - name: Deploy to Hostinger via FTP
+        uses: samkirkland/ftp-deploy-action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ./
+          protocol: ftp
+          dry-run: false
+          dangerous-clean-slate: true   # deletes everything in server-dir before uploading
+
+  notify:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Notify deployment status
+        run: |
+          if [ "${{ needs.build-and-deploy.result }}" == "success" ]; then
+            echo "🚀 Deployment successful!"
+            echo "Website: http://${{ secrets.FTP_SERVER }}"
+          else
+            echo "❌ Deployment failed!"
+            exit 1
+          fi
