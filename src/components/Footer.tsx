@@ -40,30 +40,25 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li><a href="/placement-services" className="hover:text-indigo-400 transition-colors font-semibold">🌟 School Placements (Featured)</a></li>
-              <li><a href="/institute-services" className="hover:text-indigo-400 transition-colors">Home Tuition</a></li>
-              <li><a href="/institute-services" className="hover:text-indigo-400 transition-colors">Coaching Classes</a></li>
-              <li><a href="/institute-services" className="hover:text-indigo-400 transition-colors">Online Tuition</a></li>
+              <li><a href="/institute-services" className="hover:text-indigo-400 transition-colors">Academic Excellence</a></li>
               <li><a href="/admission-assistance" className="hover:text-indigo-400 transition-colors">B.Ed./M.Ed. Admissions</a></li>
+              <li><a href="/privacy-policy" className="hover:text-indigo-400 transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms-conditions" className="hover:text-indigo-400 transition-colors">Terms & Conditions</a></li>
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Keywords</h3>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li>Home Tuition Gurgaon</li>
-              <li>School Job Placements</li>
-              <li>B.Ed. Admission Assistance</li>
-              <li>M.Ed. Programs</li>
-              <li>Teacher Placement Services</li>
-            </ul>
-          </div>
+          <div></div>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-          <p>© 2025 NourineInstitute. All rights reserved. | Privacy Policy | Terms of Service</p>
+          <p>
+            © 2025 NourineInstitute. All rights reserved. | 
+            <a href="/privacy-policy" className="hover:text-indigo-400">Privacy Policy</a> | 
+           <a href="/terms-conditions" className="hover:text-indigo-400">Terms & Conditions</a>
+          </p>
         </div>
       </div>
     </footer>

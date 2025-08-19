@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Users, Monitor, CheckCircle, Award, Clock } from 'lucide-react';
+import { Home, Users, Monitor, CheckCircle, Award, Clock, User } from 'lucide-react';
 import TuitionForm from '../components/TuitionForm';
 
 const InstituteServices: React.FC = () => {
@@ -30,6 +30,44 @@ const InstituteServices: React.FC = () => {
     { icon: CheckCircle, text: '100% board exam scores for top students' }
   ];
 
+  const faculty = [
+    {
+      name: 'Mr. Nourin Kakkar',
+      qualification: 'M.Sc, B.Ed',
+      experience: '18 years',
+      subject: 'Mathematics',
+      specialization: 'Advanced Mathematics & Problem Solving'
+    },
+    {
+      name: 'Mr. Chanky Tatya',
+      qualification: 'M.Com, M.Ed, B.Ed',
+      experience: '18 years',
+      subject: 'Mathematics & Economics',
+      specialization: 'Mathematical Economics & Business Studies'
+    },
+    {
+      name: 'Mr. Atit Power',
+      qualification: 'M.Com, B.Ed',
+      experience: '17 years',
+      subject: 'Accounts',
+      specialization: 'Financial Accounting & Business Finance'
+    },
+    {
+      name: 'Mr. Sandeep Yadav',
+      qualification: 'M.Tech, B.Ed',
+      experience: '13 years',
+      subject: 'Science',
+      specialization: 'Physics, Chemistry & Applied Sciences'
+    },
+    {
+      name: 'Ms. Priyanka Makkar',
+      qualification: 'M.A, B.Ed',
+      experience: '5 years',
+      subject: 'English',
+      specialization: 'English Literature & Communication Skills'
+    }
+  ];
+
   const subjects = ['Mathematics', 'Science (Physics, Chemistry, Biology)', 'Accounts', 'Business Studies', 'Economics'];
 
   return (
@@ -41,8 +79,8 @@ const InstituteServices: React.FC = () => {
         <div className="absolute bottom-10 left-10 w-64 h-64 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center relative z-10">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Institute Services
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+              Academic Excellence
               <span className="block text-2xl md:text-3xl text-blue-400 mt-2 font-semibold">
                 "Excellence in Every Lesson"
               </span>
@@ -108,7 +146,7 @@ const InstituteServices: React.FC = () => {
       </section>
 
       {/* Subjects Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Subjects We Cover</h2>
@@ -125,8 +163,45 @@ const InstituteServices: React.FC = () => {
         </div>
       </section>
 
+      {/* Faculty Section */}
+      <section className="py-20 bg-gradient-to-br from-indigo-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Meet Our Expert Faculty</h2>
+            <p className="text-xl text-gray-600">Experienced educators dedicated to your academic success</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {faculty.map((teacher, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div className="text-center mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <User className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{teacher.name}</h3>
+                  <p className="text-indigo-600 font-semibold">{teacher.qualification}</p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Experience:</span>
+                    <span className="font-semibold text-gray-900">{teacher.experience}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Subject:</span>
+                    <span className="font-semibold text-gray-900">{teacher.subject}</span>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-gray-200">
+                    <p className="text-xs text-gray-600 text-center">{teacher.specialization}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Form Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <TuitionForm />
         </div>

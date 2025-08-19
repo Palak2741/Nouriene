@@ -13,7 +13,7 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hello! I'm your NourineInstitute assistant. I can help you with information about our services, placements, tuition, and admissions. How can I assist you today?",
+      text: "Welcome to NourineInstitute! 🎓 I'm here to help you with information about our placement services, academic programs, and admission assistance. Feel free to ask me anything - how can I assist you today?",
       isBot: true
     }
   ]);
@@ -73,6 +73,17 @@ const Chatbot: React.FC = () => {
   const findResponse = (input: string): { response: string; links?: Array<{ text: string; url: string; section?: string }> } => {
     const lowerInput = input.toLowerCase();
     
+    // Handle greetings and general queries
+    if (['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening'].some(greeting => lowerInput.includes(greeting))) {
+      return {
+        response: "Hello! Great to connect with you! 😊 I'm here to help you with:\n\n🏆 Placement Services (Our premier offering)\n📚 Academic Excellence programs\n🎓 B.Ed./M.Ed. Admission Assistance\n📞 Contact information\n\nWhat would you like to know more about?",
+        links: [
+          { text: "Explore Placement Services", url: "/placement-services", section: "Our flagship service" },
+          { text: "View All Services", url: "/", section: "Homepage overview" }
+        ]
+      };
+    }
+    
     for (const [key, data] of Object.entries(knowledgeBase)) {
       if (data.keywords.some(keyword => lowerInput.includes(keyword))) {
         return { response: data.response, links: data.links };
@@ -80,7 +91,7 @@ const Chatbot: React.FC = () => {
     }
     
     return {
-      response: "I'd be happy to help you with that! For specific queries not covered in our website, please:\n\n📧 Send an email to: info@nourineinstitute.com\n📱 WhatsApp us at: +91 9650304310\n\nOur team will get back to you within 24 hours with detailed information.",
+      response: "I'd be happy to help you with that! For specific queries not covered on our website, please:\n\n📧 Email us: info@nourineinstitute.com\n📱 WhatsApp: +91 9650304310\n\nOur expert team will respond within 24 hours with personalized assistance.",
       links: [
         { text: "Contact Us", url: "/contact", section: "Get in touch" }
       ]

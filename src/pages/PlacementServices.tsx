@@ -12,6 +12,17 @@ const PlacementServices: React.FC = () => {
     'HR Personnel'
   ];
 
+  const partnerSchools = [
+    'Mayo College, Ajmer, Rajasthan',
+    'Delhi Public School (DPS), Gurgaon',
+    'Shalom Hills International School, Gurugram',
+    'Shalom Presidency School, Gurugram',
+    'Satya School, Gurugram',
+    'Euro International School (Euro Group), Gurugram',
+    'Narayana e-Techno School (Narayana Group), Gurugram',
+    'Sri Chaitanya Techno School (Sri Chaitanya Group), Gurugram'
+  ];
+
   const highlights = [
     { icon: Users, number: '5,000+', label: 'Teachers Successfully Placed' },
     { icon: Building, number: '100+', label: 'Partner Schools in Gurgaon' },
@@ -133,7 +144,7 @@ const PlacementServices: React.FC = () => {
       </section>
 
       {/* Roles Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-indigo-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -157,8 +168,37 @@ const PlacementServices: React.FC = () => {
         </div>
       </section>
 
+      {/* Partner Schools Section */}
+      <section className="py-20 bg-gradient-to-br from-indigo-50 to-purple-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Partner Schools Network
+            </h2>
+            <p className="text-xl text-gray-600">Premium educational institutions where we place our educators</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {partnerSchools.map((school, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center">
+                    <Building className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-sm font-bold text-gray-900">{school}</h3>
+                </div>
+              </div>
+            ))}
+            <div className="bg-gradient-to-r from-yellow-400 to-orange-500 p-6 rounded-xl shadow-lg text-center">
+              <h3 className="text-lg font-bold text-gray-900 mb-2">And Many More...</h3>
+              <p className="text-sm text-gray-800">100+ Schools in our network</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Registration Form Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <PlacementForm />
         </div>

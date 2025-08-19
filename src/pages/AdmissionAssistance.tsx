@@ -8,13 +8,15 @@ const AdmissionAssistance: React.FC = () => {
       name: 'B.Ed. (Bachelor of Education)',
       description: 'Foundation program for aspiring teachers with comprehensive teaching methodology and practice.',
       duration: '2 Years',
-      eligibility: 'Graduate in any discipline'
+      eligibility: 'Minimum 50% marks in graduation',
+      universities: ['Gurugram University', 'Maharishi Dayanand University']
     },
     {
       name: 'M.Ed. (Master of Education)',
       description: 'Advanced program for educational leadership, curriculum development, and educational research.',
       duration: '2 Years',
-      eligibility: 'B.Ed. with minimum 50% marks'
+      eligibility: 'B.Ed. completion is mandatory with marksheet',
+      universities: ['Gurugram University', 'Maharishi Dayanand University']
     }
   ];
 
@@ -48,7 +50,20 @@ const AdmissionAssistance: React.FC = () => {
     'Expert faculty with industry experience',
     'Exam preparation and guidance',
     'Post-graduation placement assistance',
-    'Affordable fee structure with installment options'
+    'Affordable fee structure with installment options',
+    'Complete document assistance and verification',
+    'University liaison and admission support'
+  ];
+
+  const requiredDocuments = [
+    '10th onward Marksheet (All academic records)',
+    'Original Migration Certificate',
+    'Passport Size Photographs (Recent)',
+    'Email ID and Contact Number',
+    'Signature specimens',
+    'Aadhar Card (Identity proof)',
+    'Family ID (Additional verification)',
+    'B.Ed. Marksheet (For M.Ed. applicants only)'
   ];
 
   return (
@@ -100,6 +115,17 @@ const AdmissionAssistance: React.FC = () => {
                     <p className="font-semibold text-gray-900">{program.eligibility}</p>
                   </div>
                 </div>
+                <div className="mt-4 pt-4 border-t border-blue-200">
+                  <p className="text-sm text-gray-600 mb-2">Partner Universities:</p>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    {program.universities.map((university, idx) => (
+                      <li key={idx} className="flex items-center">
+                        <CheckCircle className="h-3 w-3 text-green-500 mr-2" />
+                        {university}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
@@ -132,7 +158,7 @@ const AdmissionAssistance: React.FC = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -163,8 +189,37 @@ const AdmissionAssistance: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact Form Section */}
+      {/* Documents Required Section */}
       <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Documents Required for Admission</h2>
+            <p className="text-xl text-gray-600">Complete checklist for hassle-free admission process</p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-8 rounded-2xl border border-purple-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Required Documents Checklist</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {requiredDocuments.map((document, index) => (
+                  <div key={index} className="flex items-start space-x-3 p-3 bg-white rounded-lg shadow-sm">
+                    <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">{document}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <p className="text-sm text-yellow-800">
+                  <strong>Note:</strong> All documents should be original with photocopies. Our team will assist you with document verification and submission process.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <AdmissionForm />
         </div>

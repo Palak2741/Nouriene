@@ -169,6 +169,33 @@ const AdmissionForm: React.FC = () => {
         </div>
 
         <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-3">
+            Required Documents Upload
+          </label>
+          <div className="space-y-3">
+            {[
+              '10th onward Marksheet',
+              'Original Migration Certificate',
+              'Passport Size Photo',
+              'Aadhar Card',
+              'Family ID',
+              'B.Ed. Marksheet (For M.Ed. only)'
+            ].map((document, index) => (
+              <div key={index} className="border border-gray-200 rounded-lg p-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {document}
+                </label>
+                <input
+                  type="file"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
           <label className="block text-sm font-semibold text-gray-700 mb-2">
             Teaching Experience (if any)
           </label>

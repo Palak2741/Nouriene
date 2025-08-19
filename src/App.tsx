@@ -8,6 +8,8 @@ import InstituteServices from './pages/InstituteServices';
 import PlacementServices from './pages/PlacementServices';
 import AdmissionAssistance from './pages/AdmissionAssistance';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsConditions from './pages/TermsConditions';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
             <Route path="/placement-services" element={<PlacementServices />} />
             <Route path="/admission-assistance" element={<AdmissionAssistance />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-conditions" element={<TermsConditions />} />
           </Routes>
         </main>
         <Footer />
