@@ -163,8 +163,8 @@ const AdmissionAssistance: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <img
-                src="https://images.pexels.com/photos/5212700/pexels-photo-5212700.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Students studying for B.Ed. and M.Ed."
+                src="https://images.pexels.com/photos/159775/library-la-trobe-study-students-159775.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Students studying in modern library environment"
                 className="w-full rounded-lg shadow-xl"
               />
             </div>

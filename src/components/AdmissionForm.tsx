@@ -1,47 +1,60 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { Send, CheckCircle, GraduationCap } from 'lucide-react';
-
-interface AdmissionFormData {
-  name: string;
-  email: string;
-  phone: string;
-  program: string;
-  currentStatus: string;
-  qualification: string;
-  workingStatus: string;
-  preferredSchedule: string;
-  experience: string;
-}
 
 const AdmissionForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    program: '',
+    currentStatus: '',
+    message: ''
+  });
 
-  const { register, handleSubmit, formState: { errors }, reset, watch } = useForm<AdmissionFormData>();
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
 
-  const selectedProgram = watch('program');
-
-  const onSubmit = async (data: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setIsSubmitting(true);
     
-    const formData = {
-      ...data,
+    const submissionData = {
+      ...formData,
       service: 'Admission Assistance',
       timestamp: new Date().toISOString()
     };
 
-    console.log('Admission Form Data:', formData);
-    
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      const response = await fetch('/api/send-admission-inquiry.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData)
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            program: '',
+            currentStatus: '',
+            message: ''
+          });
+        }, 5000);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
     
     setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    setTimeout(() => {
-      setIsSubmitted(false);
-      reset();
-    }, 5000);
   };
 
   if (isSubmitted) {
@@ -67,22 +80,23 @@ const AdmissionForm: React.FC = () => {
     <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
       <div className="text-center mb-8">
         <GraduationCap className="h-12 w-12 text-purple-600 mx-auto mb-4" />
-        <h3 className="text-3xl font-bold text-gray-900 mb-2">Admission Assistance Form</h3>
-        <p className="text-gray-600">Take the next step in your educational journey</p>
+        <h3 className="text-3xl font-bold text-gray-900 mb-2">Admission Assistance Inquiry</h3>
+        <p className="text-gray-600">Get expert guidance for your B.Ed./M.Ed. journey</p>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Full Name *
             </label>
             <input
-              {...register('name', { required: 'Name is required' })}
+              value={formData.name}
+              onChange={(e) => handleInputChange('name', e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
               placeholder="Enter your full name"
+              required
             />
-            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
           </div>
 
           <div>
@@ -90,18 +104,13 @@ const AdmissionForm: React.FC = () => {
               Email Address *
             </label>
             <input
-              {...register('email', { 
-                required: 'Email is required',
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: 'Invalid email address'
-                }
-              })}
+              value={formData.email}
+              onChange={(e) => handleInputChange('email', e.target.value)}
               type="email"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
               placeholder="Enter your email"
+              required
             />
-            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
           </div>
 
           <div>
@@ -109,12 +118,13 @@ const AdmissionForm: React.FC = () => {
               Phone Number *
             </label>
             <input
-              {...register('phone', { required: 'Phone number is required' })}
+              value={formData.phone}
+              onChange={(e) => handleInputChange('phone', e.target.value)}
               type="tel"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
               placeholder="Enter your phone number"
+              required
             />
-            {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
           </div>
 
           <div>
@@ -122,32 +132,16 @@ const AdmissionForm: React.FC = () => {
               Program of Interest *
             </label>
             <select
-              {...register('program', { required: 'Program is required' })}
+              value={formData.program}
+              onChange={(e) => handleInputChange('program', e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+              required
             >
               <option value="">Select Program</option>
               <option value="B.Ed.">B.Ed. (Bachelor of Education)</option>
               <option value="M.Ed.">M.Ed. (Master of Education)</option>
               <option value="Both">Both B.Ed. and M.Ed.</option>
             </select>
-            {errors.program && <p className="text-red-500 text-sm mt-1">{errors.program.message}</p>}
-          </div>
-
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Current Educational Qualification *
-            </label>
-            <select
-              {...register('qualification', { required: 'Qualification is required' })}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
-            >
-              <option value="">Select Qualification</option>
-              <option value="Graduate">Graduate (Any Stream)</option>
-              <option value="Post Graduate">Post Graduate</option>
-              <option value="B.Ed.">B.Ed. (for M.Ed. applicants)</option>
-              <option value="Other">Other</option>
-            </select>
-            {errors.qualification && <p className="text-red-500 text-sm mt-1">{errors.qualification.message}</p>}
           </div>
 
           <div>
@@ -155,8 +149,10 @@ const AdmissionForm: React.FC = () => {
               Current Status *
             </label>
             <select
-              {...register('currentStatus', { required: 'Current status is required' })}
+              value={formData.currentStatus}
+              onChange={(e) => handleInputChange('currentStatus', e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+              required
             >
               <option value="">Select Status</option>
               <option value="Working Professional">Working Professional</option>
@@ -164,95 +160,21 @@ const AdmissionForm: React.FC = () => {
               <option value="Unemployed">Unemployed</option>
               <option value="Homemaker">Homemaker</option>
             </select>
-            {errors.currentStatus && <p className="text-red-500 text-sm mt-1">{errors.currentStatus.message}</p>}
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">
-            Required Documents Upload
-          </label>
-          <div className="space-y-3">
-            {[
-              '10th onward Marksheet',
-              'Original Migration Certificate',
-              'Passport Size Photo',
-              'Aadhar Card',
-              'Family ID',
-              'B.Ed. Marksheet (For M.Ed. only)'
-            ].map((document, index) => (
-              <div key={index} className="border border-gray-200 rounded-lg p-3">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {document}
-                </label>
-                <input
-                  type="file"
-                  accept=".pdf,.jpg,.jpeg,.png"
-                  className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100"
-                />
-              </div>
-            ))}
           </div>
         </div>
 
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-2">
-            Teaching Experience (if any)
+            Message / Additional Information
           </label>
-          <select
-            {...register('experience')}
+          <textarea
+            value={formData.message}
+            onChange={(e) => handleInputChange('message', e.target.value)}
+            rows={4}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
-          >
-            <option value="">Select Experience</option>
-            <option value="No Experience">No Experience</option>
-            <option value="0-1 Years">0-1 Years</option>
-            <option value="1-3 Years">1-3 Years</option>
-            <option value="3-5 Years">3-5 Years</option>
-            <option value="5+ Years">5+ Years</option>
-          </select>
+            placeholder="Tell us about your requirements, preferred schedule, or any questions..."
+          />
         </div>
-
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">
-            Preferred Class Schedule *
-          </label>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              'Weekend Classes (Saturday & Sunday)',
-              'Evening Classes (After 6 PM)',
-              'Morning Classes (Before 10 AM)',
-              'Flexible Schedule'
-            ].map(schedule => (
-              <label key={schedule} className="flex items-center space-x-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors duration-200">
-                <input
-                  {...register('preferredSchedule', { required: 'Schedule preference is required' })}
-                  type="radio"
-                  value={schedule}
-                  className="text-purple-600 focus:ring-purple-500"
-                />
-                <span className="text-sm font-medium text-gray-700">{schedule}</span>
-              </label>
-            ))}
-          </div>
-          {errors.preferredSchedule && <p className="text-red-500 text-sm mt-1">{errors.preferredSchedule.message}</p>}
-        </div>
-
-        {selectedProgram && (
-          <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-lg border border-purple-200">
-            <h4 className="font-semibold text-gray-900 mb-2">
-              {selectedProgram === 'B.Ed.' ? 'B.Ed. Program Benefits:' : 
-               selectedProgram === 'M.Ed.' ? 'M.Ed. Program Benefits:' : 
-               'Program Benefits:'}
-            </h4>
-            <ul className="text-sm text-gray-700 space-y-1">
-              <li>• Flexible class timings for working professionals</li>
-              <li>• Complete study materials and notes provided</li>
-              <li>• Expert faculty with industry experience</li>
-              <li>• Exam preparation and guidance</li>
-              <li>• Post-graduation placement assistance</li>
-            </ul>
-          </div>
-        )}
 
         <button
           type="submit"
@@ -267,7 +189,7 @@ const AdmissionForm: React.FC = () => {
           ) : (
             <>
               <Send className="h-5 w-5" />
-              <span>Submit Application</span>
+              <span>Submit Inquiry</span>
             </>
           )}
         </button>

@@ -56,7 +56,6 @@ const PlacementForm: React.FC = () => {
   const onSubmit = async (data: any) => {
     setIsSubmitting(true);
     
-    // Simulate form submission
     const formData = {
       ...data,
       preferences: preferences.filter(p => p.level),
@@ -64,21 +63,28 @@ const PlacementForm: React.FC = () => {
       timestamp: new Date().toISOString()
     };
 
-    // In a real application, you would send this to your backend
-    console.log('Placement Form Data:', formData);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      const response = await fetch('/api/send-placement-form.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          reset();
+          setPreferences([{ level: '', subjects: [] }]);
+        }, 5000);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
     
     setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      reset();
-      setPreferences([{ level: '', subjects: [] }]);
-    }, 5000);
   };
 
   if (isSubmitted) {

@@ -131,8 +131,8 @@ const PlacementServices: React.FC = () => {
             <div className="lg:pl-8 relative">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl transform rotate-3 opacity-20"></div>
               <img
-                src="https://images.pexels.com/photos/5212353/pexels-photo-5212353.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Professional teacher in classroom"
+                src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Professional educational environment"
                 className="relative w-full rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-green-400 to-blue-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg">

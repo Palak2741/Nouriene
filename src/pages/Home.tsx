@@ -106,7 +106,8 @@ const Home: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl transform rotate-6 opacity-20"></div>
               <img
                 src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Students and teachers in classroom"
+                src="https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Modern classroom with educational technology"
                 className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-xl font-semibold shadow-lg">
@@ -177,10 +178,10 @@ const Home: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/placement-services"
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-8 py-4 rounded-xl font-bold hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                href="/contact"
               >
                 <Briefcase className="h-6 w-6" />
-                <span>Register for Placement</span>
+                <span>Get Expert Guidance</span>
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a

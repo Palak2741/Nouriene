@@ -37,18 +37,28 @@ const TuitionForm: React.FC = () => {
       timestamp: new Date().toISOString()
     };
 
-    console.log('Tuition Form Data:', formData);
-    
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      const response = await fetch('/api/send-tuition-inquiry.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          reset();
+          setSelectedSubjects([]);
+        }, 5000);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
     
     setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    setTimeout(() => {
-      setIsSubmitted(false);
-      reset();
-      setSelectedSubjects([]);
-    }, 5000);
   };
 
   const toggleSubject = (subject: string) => {
