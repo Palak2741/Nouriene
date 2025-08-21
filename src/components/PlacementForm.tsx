@@ -54,38 +54,43 @@ const PlacementForm: React.FC = () => {
   };
 
   const onSubmit = async (data: any) => {
-    setIsSubmitting(true);
-    
-    const formData = {
-      ...data,
-      preferences: preferences.filter(p => p.level),
-      service: 'Placement Services',
-      timestamp: new Date().toISOString()
-    };
+  setIsSubmitting(true);
 
-    try {
-      const response = await fetch('/api/send-placement-form.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
+  const formData = new FormData();
 
-      if (response.ok) {
-        setIsSubmitted(true);
-        setTimeout(() => {
-          setIsSubmitted(false);
-          reset();
-          setPreferences([{ level: '', subjects: [] }]);
-        }, 5000);
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
+  formData.append('name', data.name);
+  formData.append('email', data.email);
+  formData.append('phone', data.phone);
+  formData.append('city', data.city);
+  formData.append('gender', data.gender);
+  formData.append('experience', data.experience);
+  formData.append('timestamp', new Date().toISOString());
+  formData.append('preferences', JSON.stringify(preferences.filter(p => p.level)));
+
+  if (data.cv && data.cv.length > 0) {
+    formData.append('attachment', data.cv[0]); // 'attachment' must match PHP $_FILES['attachment']
+  }
+
+  try {
+    const response = await fetch('/api/send-placement-form.php', {
+      method: 'POST',
+      body: formData // <-- no JSON stringify, let browser set content-type
+    });
+
+    if (response.ok) {
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        reset();
+        setPreferences([{ level: '', subjects: [] }]);
+      }, 5000);
     }
-    
-    setIsSubmitting(false);
-  };
+  } catch (error) {
+    console.error('Error submitting form:', error);
+  }
+
+  setIsSubmitting(false);
+};
 
   if (isSubmitted) {
     return (
