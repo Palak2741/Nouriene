@@ -41,7 +41,7 @@ jobs:
           server-dir: ./
           protocol: ftp
           dry-run: false
-          dangerous-clean-slate: true   # deletes everything in server-dir before uploading
+          dangerous-clean-slate: false   # deletes everything in server-dir before uploading
 
   notify:
     needs: build-and-deploy
