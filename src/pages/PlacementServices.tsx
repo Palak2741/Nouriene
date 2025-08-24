@@ -56,13 +56,9 @@ const PlacementServices: React.FC = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Teacher Placement Services
               <span className="block text-2xl md:text-3xl text-yellow-400 mt-2 font-semibold">
-                "Your Career, Our Priority"
+                "Gurgaon's Pioneer in School Job Placements Since 2005"
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-indigo-100 max-w-4xl mx-auto leading-relaxed">
-              Pioneer in educational placements with 5,000+ success stories across 100+ premium schools in Gurgaon. 
-              Your gateway to rewarding teaching careers.
-            </p>
           </div>
         </div>
       </section>

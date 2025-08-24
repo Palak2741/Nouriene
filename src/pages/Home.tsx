@@ -81,9 +81,17 @@ const Home: React.FC = () => {
                 Transforming Educational 
                 <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent"> Journeys</span>
               </h1>
+              <div className="mb-4">
+                <h2 className="text-2xl md:text-3xl font-semibold text-yellow-300 mb-2">
+                  Gurgaon's #1 Educational Services Provider
+                </h2>
+                <p className="text-lg md:text-xl text-indigo-200 mb-4">
+                  🏆 5000+ Teacher Placements | 📚 95%+ Academic Results | 🎓 B.Ed./M.Ed. Admission Experts
+                </p>
+              </div>
               <p className="text-xl md:text-2xl mb-8 text-indigo-100 leading-relaxed">
-                With 20+ years of expertise, we're your trusted partner for career placements, 
-                academic excellence, and educational advancement in Gurgaon.
+                Premier Home Tuition, School Job Placements & Higher Education Admission Assistance in Gurgaon. 
+                20+ Years of Proven Excellence in Educational Services.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -105,9 +113,8 @@ const Home: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl transform rotate-6 opacity-20"></div>
               <img
-                src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=800"
-                src="https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Modern classroom with educational technology"
+                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Educational excellence and career placement services"
                 className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-xl font-semibold shadow-lg">
@@ -177,8 +184,8 @@ const Home: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/placement-services"
                 href="/contact"
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-8 py-4 rounded-xl font-bold hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 <Briefcase className="h-6 w-6" />
                 <span>Get Expert Guidance</span>

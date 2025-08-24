@@ -81,32 +81,17 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Map Placeholder */}
-            <div className="bg-gray-200 rounded-lg overflow-hidden">
+            <div className="bg-gray-200 rounded-lg overflow-hidden h-96">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.123456789!2d77.0618873!3d28.4342882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDI2JzAzLjQiTiA3N8KwMDMnNDIuOCJF!5e0!3m2!1sen!2sin!4v1234567890"
                 width="100%"
-                height="384"
+                height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="NourineInstitute Location"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center" style={{ display: 'none' }}>
-                <div className="text-center">
-                  <MapPin className="h-16 w-16 text-blue-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Find Us Here</h3>
-                  <p className="text-gray-600">H.No - 2427P, Sec 46, Gurgaon</p>
-                  <a 
-                    href="https://www.google.com/maps?q=28.4342882,77.0618873"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                  >
-                    View on Google Maps
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>

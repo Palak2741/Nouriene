@@ -78,13 +78,9 @@ const AdmissionAssistance: React.FC = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Admission Assistance
               <span className="block text-2xl md:text-3xl text-purple-400 mt-2 font-semibold">
-                "Your Future Starts Here"
+                "B.Ed. & M.Ed. Admission Experts in Gurgaon"
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-indigo-100 max-w-4xl mx-auto leading-relaxed">
-              Expert guidance for B.Ed. and M.Ed. admissions with flexible programs designed for working professionals. 
-              Complete your education without disrupting your career.
-            </p>
           </div>
         </div>
       </section>

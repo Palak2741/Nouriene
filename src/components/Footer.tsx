@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
-              "Where Excellence Meets Opportunity" - Transforming educational journeys with 20+ years of expertise in placements, tuition, and admissions across Gurgaon.
+              Gurgaon's Premier Educational Services Provider since 2005. Specializing in Teacher Placements (5000+ success stories), Home Tuition (95%+ results), and B.Ed./M.Ed. Admission Assistance. Your trusted partner for educational excellence.
             </p>
             <div className="space-y-2 text-sm text-gray-300">
               <div className="flex items-center space-x-2">

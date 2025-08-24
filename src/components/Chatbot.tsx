@@ -13,7 +13,7 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Welcome to NourineInstitute! 🎓 I'm here to help you with information about our placement services, academic programs, and admission assistance. Feel free to ask me anything - how can I assist you today?",
+      text: "Welcome to NourineInstitute - Gurgaon's #1 Educational Services Provider! 🎓 \n\nWe specialize in:\n🏆 Teacher Placements (5000+ success stories)\n📚 Home Tuition & Coaching (95%+ results)\n🎓 B.Ed./M.Ed. Admission Assistance\n\nHow can I help you achieve your educational goals today?",
       isBot: true
     }
   ]);

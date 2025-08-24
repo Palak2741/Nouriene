@@ -82,13 +82,9 @@ const InstituteServices: React.FC = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
               Academic Excellence
               <span className="block text-2xl md:text-3xl text-blue-400 mt-2 font-semibold">
-                "Excellence in Every Lesson"
+                "Gurgaon's Most Trusted Home Tuition & Coaching Classes"
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-indigo-100 max-w-4xl mx-auto leading-relaxed">
-              Comprehensive tuition solutions designed for academic excellence across all learning preferences. 
-              20+ years of proven results with 95%+ success rate.
-            </p>
           </div>
         </div>
       </section>

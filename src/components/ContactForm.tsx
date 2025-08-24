@@ -20,21 +20,38 @@ const ContactForm: React.FC<ContactFormProps> = ({ title, fields, onSubmit }) =>
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    if (onSubmit) {
-      onSubmit(formData);
+    const submissionData = {
+      ...formData,
+      timestamp: new Date().toISOString()
+    };
+
+    try {
+      const response = await fetch('/api/send-contact-form.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData)
+      });
+
+      if (response.ok) {
+        if (onSubmit) {
+          onSubmit(formData);
+        }
+        
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({});
+        }, 3000);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setIsSubmitting(false);
     }
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({});
-    }, 3000);
   };
 
   const renderField = (field: string) => {
