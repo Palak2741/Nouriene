@@ -28,14 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->isSMTP();
         $mail->Host = 'smtp.hostinger.com'; // Replace with your SMTP host
         $mail->SMTPAuth = true;
-        $mail->Username = 'info@nourineinstitute.com'; // Replace with your email
+        $mail->Username = 'info@norieneinstitute.com';
         $mail->Password = 'your_email_password'; // Replace with your password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
         
         // Recipients
-        $mail->setFrom('info@nourineinstitute.com', 'NourineInstitute Website');
-        $mail->addAddress('info@nourineinstitute.com');
+        $mail->setFrom('info@norieneinstitute.com', 'Noriene Institute Website');
+        $mail->addAddress('info@norieneinstitute.com');
         
         // Content
         $mail->isHTML(true);

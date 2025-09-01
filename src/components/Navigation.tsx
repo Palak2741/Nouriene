@@ -19,15 +19,22 @@ const Navigation: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center">
-                <GraduationCap className="h-6 w-6 text-slate-900" />
+            <div className="relative group">
+              <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-105 transition-all duration-300">
+                <GraduationCap className="h-7 w-7 text-white" />
               </div>
-              <Award className="h-4 w-4 text-yellow-400 absolute -top-1 -right-1" />
+              <div className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                <Award className="h-3 w-3 text-slate-900" />
+              </div>
             </div>
-            <span className="text-xl font-bold text-white">
-              NourineInstitute
-            </span>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold bg-gradient-to-r from-white to-indigo-100 bg-clip-text text-transparent">
+                Noriene Institute
+              </span>
+              <span className="text-xs text-yellow-400 font-semibold tracking-wide">
+                Placement Services • Academic Excellence
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

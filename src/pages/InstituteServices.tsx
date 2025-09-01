@@ -6,7 +6,7 @@ const InstituteServices: React.FC = () => {
   const subServices = [
     {
       name: 'Home Tuition',
-      description: 'Personalized one-on-one sessions at your home for focused learning in Maths, Science, Accounts, Business Studies, and Economics (Classes 6-12).',
+      description: 'Personalized one-on-one sessions at your home for focused learning in Maths, Science, Accounts, Business Studies, and Economics (Classes 1-12).',
       icon: Home,
       features: ['Personalized attention', 'Flexible scheduling', 'Comfortable learning environment', 'Parent supervision possible']
     },
@@ -32,21 +32,21 @@ const InstituteServices: React.FC = () => {
 
   const faculty = [
     {
-      name: 'Mr. Nourin Kakkar',
+      name: 'Mr. Nourine Kakkar',
       qualification: 'M.Sc, B.Ed',
       experience: '18 years',
       subject: 'Mathematics',
       specialization: 'Advanced Mathematics & Problem Solving'
     },
     {
-      name: 'Mr. Chanky Tatya',
+      name: 'Mr. Chanky Taneja',
       qualification: 'M.Com, M.Ed, B.Ed',
       experience: '18 years',
       subject: 'Mathematics & Economics',
       specialization: 'Mathematical Economics & Business Studies'
     },
     {
-      name: 'Mr. Atit Power',
+      name: 'Mr. Atit Grover',
       qualification: 'M.Com, B.Ed',
       experience: '17 years',
       subject: 'Accounts',
@@ -146,7 +146,7 @@ const InstituteServices: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Subjects We Cover</h2>
-            <p className="text-xl text-gray-600">Expert instruction across core academic subjects for Classes 6-12.</p>
+            <p className="text-xl text-gray-600">Expert instruction across core academic subjects for Classes 1-12.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

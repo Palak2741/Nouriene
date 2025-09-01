@@ -16,17 +16,12 @@ const Contact: React.FC = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: ['+91 9650304310', 'Mon-Sat: 9:00 AM - 7:00 PM']
+      details: ['+91 9650304310', 'WhatsApp Available']
     },
     {
       icon: Mail,
       title: 'Email',
       details: ['info@nourineinstitute.com', 'For all inquiries and admissions']
-    },
-    {
-      icon: Clock,
-      title: 'Office Hours',
-      details: ['Monday - Saturday: 9:00 AM - 7:00 PM', 'Sunday: 10:00 AM - 4:00 PM']
     }
   ];
 
@@ -47,7 +42,7 @@ const Contact: React.FC = () => {
       {/* Contact Info Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
               return (
@@ -81,7 +76,7 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Map Placeholder */}
-            <div className="bg-gray-200 rounded-lg overflow-hidden h-96">
+            <div className="bg-gray-200 rounded-lg overflow-hidden" style={{ height: '400px' }}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.123456789!2d77.0618873!3d28.4342882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDI2JzAzLjQiTiA3N8KwMDMnNDIuOCJF!5e0!3m2!1sen!2sin!4v1234567890"
                 width="100%"
@@ -90,7 +85,7 @@ const Contact: React.FC = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="NourineInstitute Location"
+                title="Noriene Institute Location"
               />
             </div>
           </div>

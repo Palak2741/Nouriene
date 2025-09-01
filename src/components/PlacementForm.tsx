@@ -19,6 +19,8 @@ interface PlacementFormData {
 const PlacementForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
   const [preferences, setPreferences] = useState<Array<{ level: string; subjects: string[] }>>([
     { level: '', subjects: [] }
   ]);
@@ -51,6 +53,25 @@ const PlacementForm: React.FC = () => {
       updated[index] = { ...updated[index], [field]: value };
     }
     setPreferences(updated);
+  };
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setIsUploading(true);
+      // Simulate upload process
+      setTimeout(() => {
+        setUploadedFile(file);
+        setIsUploading(false);
+      }, 1500);
+    }
+  };
+
+  const removeFile = () => {
+    setUploadedFile(null);
+    // Reset file input
+    const fileInput = document.getElementById('cv-upload') as HTMLInputElement;
+    if (fileInput) fileInput.value = '';
   };
 
   const onSubmit = async (data: any) => {
@@ -293,21 +314,55 @@ const PlacementForm: React.FC = () => {
           <label className="block text-sm font-semibold text-gray-700 mb-2">
             Upload CV/Resume *
           </label>
-          <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-indigo-400 transition-colors duration-200">
-            <Upload className="h-8 w-8 text-gray-400 mx-auto mb-2" />
-            <input
-              {...register('cv', { required: 'CV is required' })}
-              type="file"
-              accept=".pdf,.doc,.docx"
-              className="hidden"
-              id="cv-upload"
-            />
-            <label htmlFor="cv-upload" className="cursor-pointer">
-              <span className="text-indigo-600 font-medium">Click to upload</span>
-              <span className="text-gray-500"> or drag and drop</span>
-            </label>
-            <p className="text-xs text-gray-500 mt-1">PDF, DOC, DOCX up to 10MB</p>
-          </div>
+          
+          {!uploadedFile ? (
+            <div className={`border-2 border-dashed rounded-lg p-6 text-center transition-all duration-200 ${
+              isUploading 
+                ? 'border-blue-400 bg-blue-50' 
+                : 'border-gray-300 hover:border-indigo-400'
+            }`}>
+              {isUploading ? (
+                <div className="flex flex-col items-center">
+                  <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin mb-2" />
+                  <span className="text-blue-600 font-medium">Uploading...</span>
+                </div>
+              ) : (
+                <>
+                  <Upload className="h-8 w-8 text-gray-400 mx-auto mb-2" />
+                  <input
+                    {...register('cv', { required: 'CV is required' })}
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    className="hidden"
+                    id="cv-upload"
+                    onChange={handleFileUpload}
+                  />
+                  <label htmlFor="cv-upload" className="cursor-pointer">
+                    <span className="text-indigo-600 font-medium">Click to upload</span>
+                    <span className="text-gray-500"> or drag and drop</span>
+                  </label>
+                  <p className="text-xs text-gray-500 mt-1">PDF, DOC, DOCX up to 10MB</p>
+                </>
+              )}
+            </div>
+          ) : (
+            <div className="border-2 border-green-300 bg-green-50 rounded-lg p-6 text-center">
+              <div className="flex items-center justify-center space-x-3 mb-3">
+                <CheckCircle className="h-8 w-8 text-green-600" />
+                <div>
+                  <p className="text-green-800 font-medium">File Uploaded Successfully!</p>
+                  <p className="text-sm text-green-600">{uploadedFile.name}</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={removeFile}
+                className="text-sm text-indigo-600 hover:text-indigo-800 font-medium"
+              >
+                Upload Different File
+              </button>
+            </div>
+          )}
           {errors.cv && <p className="text-red-500 text-sm mt-1">{errors.cv.message}</p>}
         </div>
 

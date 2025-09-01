@@ -76,7 +76,7 @@ const Chatbot: React.FC = () => {
     // Handle greetings and general queries
     if (['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening'].some(greeting => lowerInput.includes(greeting))) {
       return {
-        response: "Hello! Great to connect with you! 😊 I'm here to help you with:\n\n🏆 Placement Services (Our premier offering)\n📚 Academic Excellence programs\n🎓 B.Ed./M.Ed. Admission Assistance\n📞 Contact information\n\nWhat would you like to know more about?",
+        response: "Hello! Welcome to Noriene Institute! 😊 \n\nI'm here to help you with our educational services. Please feel free to ask me anything specific about:\n\n🏆 Teacher Placement Services (Our premier offering)\n📚 Academic Excellence (Home Tuition & Coaching)\n🎓 Admission Assistance\n📞 Contact Information\n\nWhat specific information would you like to know?",
         links: [
           { text: "Explore Placement Services", url: "/placement-services", section: "Our flagship service" },
           { text: "View All Services", url: "/", section: "Homepage overview" }
@@ -91,7 +91,7 @@ const Chatbot: React.FC = () => {
     }
     
     return {
-      response: "I'd be happy to help you with that! For specific queries not covered on our website, please:\n\n📧 Email us: info@nourineinstitute.com\n📱 WhatsApp: +91 9650304310\n\nOur expert team will respond within 24 hours with personalized assistance.",
+      response: "I'd be happy to help you with that! For specific queries not covered on our website, please:\n\n📧 Email us: info@norieneinstitute.com\n📱 WhatsApp: +91 9650304310\n\nOur expert team will respond within 24 hours with personalized assistance.",
       links: [
         { text: "Contact Us", url: "/contact", section: "Get in touch" }
       ]
@@ -155,7 +155,7 @@ const Chatbot: React.FC = () => {
                 <Bot className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="font-semibold">NourineInstitute Assistant</h3>
+                <h3 className="font-semibold">Noriene Institute Assistant</h3>
                 <p className="text-xs text-indigo-100">Online now</p>
               </div>
             </div>
