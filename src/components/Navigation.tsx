@@ -32,7 +32,7 @@ const Navigation: React.FC = () => {
                 Noriene Institute
               </span>
               <span className="text-xs text-yellow-400 font-semibold tracking-wide">
-                Connecting Educators with Schools
+                Connecting Educators with Schools & Placement Services
               </span>
             </div>
           </Link>
