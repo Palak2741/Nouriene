@@ -153,38 +153,6 @@ const AdmissionAssistance: React.FC = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <img
-                src="https://images.pexels.com/photos/159775/library-la-trobe-study-students-159775.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Students studying in modern library environment"
-                className="w-full rounded-lg shadow-xl"
-              />
-            </div>
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why Choose Our Assistance?
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                We understand the challenges of balancing work and education. Our flexible approach 
-                ensures you can complete your degree without compromising your career.
-              </p>
-              <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Documents Required Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
