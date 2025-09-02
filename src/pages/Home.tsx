@@ -74,7 +74,7 @@ const Home: React.FC = () => {
                   </a>
                 </div>
               </div>
-            </h2>
+            </div>
           </div>
 
           {/* Audience Split Cards */}
@@ -180,29 +180,6 @@ const Home: React.FC = () => {
                     <div>• 100+ Premium Schools</div>
                   </div>
                 </div>
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl mb-6 shadow-xl">
-                  <Users className="h-10 w-10 text-white" />
-              <a
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  For Educators
-                </h3>
-                <p className="text-gray-700">
-                  Teachers, Principals, Admin Staff
-                </p>
-              </div>
-
-              <div className="space-y-4 mb-8">
-                {[
-                  'Find your dream teaching position',
-                  'Access to 100+ premium schools',
-                  'Career guidance & interview prep',
-                  'Competitive salary negotiations'
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    <span className="text-gray-800">{feature}</span>
-                  </div>
-                ))}
               </div>
 
               <a
@@ -217,17 +194,13 @@ const Home: React.FC = () => {
             {/* For Schools */}
             <div className="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl border-2 border-yellow-200 shadow-xl">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-2xl mb-6 shadow-xl">
-                  <Building className="h-10 w-10 text-white" />
-                <Crown className="h-6 w-6" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  For Schools
-            </div>
-                <p className="text-gray-700">
-                  Educational Institutions & Management
-            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-8 rounded-2xl border-2 border-emerald-200 shadow-xl">
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-xl mb-4">
+                  <Building className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">For Schools</h3>
+                <p className="text-gray-600">Educational Institutions & Management</p>
+              </div>
+
               <div className="space-y-4 mb-8">
                 {[
                   'Access to qualified educators',
@@ -238,10 +211,10 @@ const Home: React.FC = () => {
                   <div key={index} className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
                     <span className="text-gray-800">{feature}</span>
-                    <div>• Online Tuition</div>
+                  </div>
                 ))}
               </div>
-                  </div>
+
               <a
                 href="/contact"
                 className="w-full bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-6 py-3 rounded-xl font-bold hover:from-yellow-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center space-x-2"
@@ -254,15 +227,11 @@ const Home: React.FC = () => {
             {/* For Students */}
             <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-8 rounded-2xl border-2 border-emerald-200 shadow-xl">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl mb-6 shadow-xl">
-                  <GraduationCap className="h-10 w-10 text-white" />
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl mb-4">
+                  <GraduationCap className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  For Students
-                </h3>
-                <p className="text-gray-700">
-                  Academic Excellence & Growth
-                </p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">For Students</h3>
+                <p className="text-gray-600">Academic Excellence & Growth</p>
               </div>
 
               <div className="space-y-4 mb-8">
