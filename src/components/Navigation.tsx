@@ -7,7 +7,6 @@ const Navigation: React.FC = () => {
   const location = useLocation();
 
   const navItems = [
-    { name: 'Home', path: '/' },
     { name: 'Placement Services', path: '/placement-services' },
     { name: 'Academic Excellence', path: '/institute-services', shortName: 'Academic' },
     { name: 'Admission Assistance', path: '/admission-assistance', shortName: 'Admission' },
@@ -28,22 +27,22 @@ const Navigation: React.FC = () => {
               </div>
             </div>
             <div className="flex flex-col min-w-0">
-              <span className="text-sm sm:text-xl font-bold bg-gradient-to-r from-white to-indigo-100 bg-clip-text text-transparent truncate">
+              <span className="text-base sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-indigo-100 bg-clip-text text-transparent truncate">
                 Nourine Institute
               </span>
-              <span className="text-xs sm:text-xs text-yellow-400 font-semibold tracking-wide truncate">
+              <span className="text-xs sm:text-sm lg:text-base text-yellow-400 font-semibold tracking-wide truncate">
                 & Placement Services
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex space-x-6 xl:space-x-8">
+          <div className="hidden lg:flex space-x-8 xl:space-x-12">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-3 py-2 text-sm font-semibold transition-all duration-300 rounded-lg whitespace-nowrap ${
+                className={`px-4 py-3 text-base xl:text-lg font-semibold transition-all duration-300 rounded-lg whitespace-nowrap ${
                   location.pathname === item.path
                     ? 'text-yellow-400 bg-white bg-opacity-10 backdrop-blur-sm'
                     : 'text-white hover:text-yellow-400 hover:bg-white hover:bg-opacity-10'
@@ -55,12 +54,12 @@ const Navigation: React.FC = () => {
           </div>
 
           {/* Tablet Navigation */}
-          <div className="hidden md:flex lg:hidden space-x-4">
+          <div className="hidden md:flex lg:hidden space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-2 py-2 text-xs font-semibold transition-all duration-300 rounded-lg whitespace-nowrap ${
+                className={`px-3 py-2 text-sm font-semibold transition-all duration-300 rounded-lg whitespace-nowrap ${
                   location.pathname === item.path
                     ? 'text-yellow-400 bg-white bg-opacity-10 backdrop-blur-sm'
                     : 'text-white hover:text-yellow-400 hover:bg-white hover:bg-opacity-10'
@@ -90,7 +89,7 @@ const Navigation: React.FC = () => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg mx-2 ${
+                className={`block px-4 py-3 text-base font-semibold transition-all duration-200 rounded-lg mx-2 ${
                   location.pathname === item.path
                     ? 'text-yellow-400 bg-white bg-opacity-10'
                     : 'text-white hover:text-yellow-400 hover:bg-white hover:bg-opacity-10'
