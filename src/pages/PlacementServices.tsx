@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Users, Award, TrendingUp, CheckCircle, Building, Crown, Star, Target } from 'lucide-react';
+import { Briefcase, Users, Award, TrendingUp, CheckCircle, Building, Crown, Star, Target, ArrowRight } from 'lucide-react';
 import PlacementForm from '../components/PlacementForm';
 
 const PlacementServices: React.FC = () => {
