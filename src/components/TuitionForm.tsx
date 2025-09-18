@@ -89,22 +89,22 @@ const TuitionForm: React.FC = () => {
   }
 
   return (
-    <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+    <div className="bg-white p-4 sm:p-8 rounded-2xl shadow-xl border border-gray-100">
       <div className="text-center mb-8">
-        <BookOpen className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
-        <h3 className="text-3xl font-bold text-gray-900 mb-2">Tuition Inquiry Form</h3>
-        <p className="text-gray-600">Start your journey to academic excellence</p>
+        <BookOpen className="h-8 w-8 sm:h-12 sm:w-12 text-indigo-600 mx-auto mb-4" />
+        <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Tuition Inquiry Form</h3>
+        <p className="text-gray-600 text-sm sm:text-base">Start your journey to academic excellence</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Student/Parent Name *
             </label>
             <input
               {...register('name', { required: 'Name is required' })}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+              className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base"
               placeholder="Enter name"
             />
             {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}

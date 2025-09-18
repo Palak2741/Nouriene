@@ -125,24 +125,24 @@ const ContactForm: React.FC<ContactFormProps> = ({ title, fields, onSubmit }) =>
   }
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-lg">
-      <h3 className="text-2xl font-bold text-gray-900 mb-6">{title}</h3>
+    <div className="bg-white p-4 sm:p-8 rounded-lg shadow-lg">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">{title}</h3>
       <form onSubmit={handleSubmit} className="space-y-6">
         {fields.map(renderField)}
         
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+          className="w-full bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 text-sm sm:text-base"
         >
           {isSubmitting ? (
             <>
-              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
               <span>Submitting...</span>
             </>
           ) : (
             <>
-              <Send className="h-5 w-5" />
+              <Send className="h-4 w-4 sm:h-5 sm:w-5" />
               <span>Submit Inquiry</span>
             </>
           )}

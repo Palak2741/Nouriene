@@ -5,25 +5,25 @@ const Home: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Full-Screen Hero with Audience Split */}
-      <section className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden flex items-center pt-16">
+      <section className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden flex items-center pt-14 sm:pt-16">
         {/* Background Effects */}
         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute bottom-20 left-1/2 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{ animationDelay: '4s' }}></div>
+          <div className="absolute top-10 left-5 sm:top-20 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+          <div className="absolute top-20 right-5 sm:top-40 sm:right-20 w-48 h-48 sm:w-96 sm:h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-10 left-1/2 sm:bottom-20 w-48 h-48 sm:w-96 sm:h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{ animationDelay: '4s' }}></div>
         </div>
 
-        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           {/* Main Header */}
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-8 py-4 rounded-full font-bold mb-8 shadow-xl">
-              <Star className="h-6 w-6" />
-              <span className="text-lg">Gurgaon's Premier Educational Services</span>
-              <Star className="h-6 w-6" />
+          <div className="text-center mb-12 sm:mb-20">
+            <div className="inline-flex items-center space-x-1 sm:space-x-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-4 sm:px-8 py-2 sm:py-4 rounded-full font-bold mb-6 sm:mb-8 shadow-xl">
+              <Star className="h-4 w-4 sm:h-6 sm:w-6" />
+              <span className="text-sm sm:text-lg">Gurgaon's Premier Educational Services</span>
+              <Star className="h-4 w-4 sm:h-6 sm:w-6" />
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 leading-tight px-2">
               <span className="bg-gradient-to-r from-white via-indigo-100 to-purple-100 bg-clip-text text-transparent">
                 Bridging Dreams with
               </span>
@@ -33,15 +33,15 @@ const Home: React.FC = () => {
               </span>
             </h1>
 
-            <div className="text-2xl md:text-3xl font-semibold text-indigo-200 mb-4">
+            <div className="text-lg sm:text-2xl md:text-3xl font-semibold text-indigo-200 mb-3 sm:mb-4 px-2">
               Connecting Educators with Schools • 10+ Years • 5,000+ Placements
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-white mb-6 sm:mb-8 px-2">
               Your Gateway to Educational Excellence
             </h2>
             
-            <p className="text-xl text-indigo-100 max-w-4xl mx-auto mb-12">
+            <p className="text-base sm:text-xl text-indigo-100 max-w-4xl mx-auto mb-8 sm:mb-12 px-4">
               Whether you're a school seeking qualified educators or a teacher looking for the perfect position, 
               we connect talent with opportunity across Gurgaon's premier educational institutions.
             </p>
@@ -49,27 +49,27 @@ const Home: React.FC = () => {
 
           {/* Single CTA Section */}
           <div className="text-center">
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-3xl border border-white border-opacity-20 shadow-2xl">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
+            <div className="max-w-4xl mx-auto px-3">
+              <div className="bg-white bg-opacity-10 backdrop-blur-sm p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-white border-opacity-20 shadow-2xl">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 sm:mb-6">
                   Ready to Make the Perfect Match?
                 </h3>
-                <p className="text-lg text-indigo-100 mb-8">
+                <p className="text-base sm:text-lg text-indigo-100 mb-6 sm:mb-8">
                   Join our network of successful educators and premier schools
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
                     href="/placement-services"
-                    className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-xl"
+                    className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-xl"
                   >
-                    <Briefcase className="h-6 w-6" />
+                    <Briefcase className="h-5 w-5 sm:h-6 sm:w-6" />
                     <span>Find Teaching Opportunities</span>
                   </a>
                   <a
                     href="/institute-services"
-                    className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-xl"
+                    className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-xl"
                   >
-                    <Book className="h-6 w-6" />
+                    <Book className="h-5 w-5 sm:h-6 sm:w-6" />
                     <span>Explore Academic Services</span>
                   </a>
                 </div>
@@ -79,19 +79,19 @@ const Home: React.FC = () => {
 
           {/* Audience Split Cards */}
           {/* Trust Indicators */}
-          <div className="text-center mt-20">
-            <div className="inline-flex items-center space-x-8 bg-white bg-opacity-10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-white border-opacity-20">
+          <div className="text-center mt-12 sm:mt-20">
+            <div className="inline-flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-8 bg-white bg-opacity-10 backdrop-blur-sm px-4 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-white border-opacity-20">
               <div className="flex items-center space-x-2">
-                <Award className="h-6 w-6 text-yellow-400" />
-                <span className="text-white font-semibold">Trusted by 100+ Schools</span>
+                <Award className="h-4 w-4 sm:h-6 sm:w-6 text-yellow-400" />
+                <span className="text-white font-semibold text-sm sm:text-base">Trusted by 100+ Schools</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Target className="h-6 w-6 text-green-400" />
-                <span className="text-white font-semibold">5,000+ Placements</span>
+                <Target className="h-4 w-4 sm:h-6 sm:w-6 text-green-400" />
+                <span className="text-white font-semibold text-sm sm:text-base">5,000+ Placements</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Users className="h-6 w-6 text-blue-400" />
-                <span className="text-white font-semibold">10+ Years Excellence</span>
+                <Users className="h-4 w-4 sm:h-6 sm:w-6 text-blue-400" />
+                <span className="text-white font-semibold text-sm sm:text-base">10+ Years Excellence</span>
               </div>
             </div>
           </div>
@@ -100,12 +100,12 @@ const Home: React.FC = () => {
 
       {/* Quick Stats Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-indigo-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Connecting Excellence Across Gurgaon
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
               The bridge between talented educators and premier schools, creating perfect matches for educational success
             </p>
           </div>
@@ -120,14 +120,14 @@ const Home: React.FC = () => {
               const Icon = stat.icon;
               return (
                 <div key={index} className="text-center group">
-                  <div className={`relative inline-flex items-center justify-center w-24 h-24 ${stat.bg} rounded-2xl mb-6 group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-110`}>
-                    <Icon className={`h-12 w-12 ${stat.color}`} />
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-                      <Star className="h-3 w-3 text-white" />
+                  <div className={`relative inline-flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24 ${stat.bg} rounded-xl sm:rounded-2xl mb-4 sm:mb-6 group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-110`}>
+                    <Icon className={`h-8 w-8 sm:h-12 sm:w-12 ${stat.color}`} />
+                    <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                      <Star className="h-2 w-2 sm:h-3 sm:w-3 text-white" />
                     </div>
                   </div>
-                  <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                  <div className="text-gray-600 font-semibold text-lg">{stat.label}</div>
+                  <div className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-2">{stat.number}</div>
+                  <div className="text-gray-600 font-semibold text-sm sm:text-lg">{stat.label}</div>
                 </div>
               );
             })}
