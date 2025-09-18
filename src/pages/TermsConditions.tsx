@@ -22,7 +22,7 @@ const TermsConditions: React.FC = () => {
             <div className="prose max-w-none">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Acceptance of Terms</h2>
               <p className="text-gray-700 mb-6">
-                By accessing and using NourineInstitute's services, you accept and agree to be bound by 
+                By accessing and using Nourine Institute's services, you accept and agree to be bound by 
                 the terms and provision of this agreement. These terms apply to all services including 
                 placement assistance, tuition services, and admission guidance.
               </p>
@@ -61,7 +61,6 @@ const TermsConditions: React.FC = () => {
               <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
                 <li>Regular attendance is mandatory for optimal results</li>
                 <li>Monthly fees must be paid in advance</li>
-                <li>Missed classes due to student absence will not be compensated</li>
                 <li>Study materials provided remain property of NourineInstitute</li>
               </ul>
 
@@ -89,7 +88,7 @@ const TermsConditions: React.FC = () => {
 
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Limitation of Liability</h2>
               <p className="text-gray-700 mb-6">
-                NourineInstitute shall not be liable for any indirect, incidental, special, or 
+                Nourine Institute shall not be liable for any indirect, incidental, special, or 
                 consequential damages arising from the use of our services. Our liability is 
                 limited to the amount paid for the specific service.
               </p>

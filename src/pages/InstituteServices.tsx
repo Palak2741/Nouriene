@@ -25,7 +25,7 @@ const InstituteServices: React.FC = () => {
   ];
 
   const highlights = [
-    { icon: Clock, text: '20 years of experience' },
+    { icon: Clock, text: '10 years of experience' },
     { icon: Award, text: 'Experienced faculty' },
     { icon: CheckCircle, text: '100% board exam scores for top students' }
   ];

@@ -85,7 +85,7 @@ const Contact: React.FC = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Noriene Institute Location"
+                title="Nourine Institute Location"
               />
             </div>
           </div>

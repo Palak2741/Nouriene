@@ -34,7 +34,7 @@ const Home: React.FC = () => {
             </h1>
 
             <div className="text-2xl md:text-3xl font-semibold text-indigo-200 mb-4">
-              Connecting Educators with Schools • 20+ Years • 5,000+ Placements
+              Connecting Educators with Schools • 10+ Years • 5,000+ Placements
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
@@ -91,7 +91,7 @@ const Home: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Users className="h-6 w-6 text-blue-400" />
-                <span className="text-white font-semibold">20+ Years Excellence</span>
+                <span className="text-white font-semibold">10+ Years Excellence</span>
               </div>
             </div>
           </div>
@@ -115,7 +115,7 @@ const Home: React.FC = () => {
               { icon: Crown, number: '5,000+', label: 'Educators Placed', color: 'text-yellow-600', bg: 'bg-yellow-100' },
               { icon: Building, number: '100+', label: 'Partner Schools', color: 'text-indigo-600', bg: 'bg-indigo-100' },
               { icon: Users, number: '95%+', label: 'Match Success Rate', color: 'text-green-600', bg: 'bg-green-100' },
-              { icon: Award, number: '20+', label: 'Years Connecting', color: 'text-purple-600', bg: 'bg-purple-100' }
+              { icon: Award, number: '10+', label: 'Years Connecting', color: 'text-purple-600', bg: 'bg-purple-100' }
             ].map((stat, index) => {
               const Icon = stat.icon;
               return (
@@ -162,12 +162,12 @@ const Home: React.FC = () => {
                 <div className="bg-white p-4 rounded-xl shadow-md">
                   <h4 className="font-bold text-gray-900 mb-2">Positions We Fill:</h4>
                   <div className="grid grid-cols-2 gap-2 text-sm text-gray-700">
-                    <div>• TGT Teachers</div>
-                    <div>• PGT Teachers</div>
-                    <div>• PRT Teachers</div>
+                    <div>• PGT</div>
+                    <div>• TGT</div>
+                    <div>• Pre-Primary</div>
+                    <div>• Coordinators</div>
                     <div>• Principals</div>
                     <div>• Vice Principals</div>
-                    <div>• Admin Staff</div>
                   </div>
                 </div>
                 

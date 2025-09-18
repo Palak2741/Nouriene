@@ -13,7 +13,7 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Welcome to NourineInstitute - Gurgaon's #1 Educational Services Provider! 🎓 \n\nWe specialize in:\n🏆 Teacher Placements (5000+ success stories)\n📚 Home Tuition & Coaching (95%+ results)\n🎓 B.Ed./M.Ed. Admission Assistance\n\nHow can I help you achieve your educational goals today?",
+      text: "Welcome to Nourine Institute - Gurgaon's #1 Educational Services Provider! 🎓 \n\nWe specialize in:\n🏆 Teacher Placements (5000+ success stories)\n📚 Home Tuition & Coaching (95%+ results)\n🎓 B.Ed./M.Ed. Admission Assistance\n\nHow can I help you achieve your educational goals today?",
       isBot: true
     }
   ]);
@@ -62,8 +62,8 @@ const Chatbot: React.FC = () => {
       ]
     },
     experience: {
-      keywords: ['experience', 'years', 'established', 'history', 'track record'],
-      response: "NourineInstitute has 20+ years of excellence in education with a proven track record of 5,000+ teacher placements, 95%+ academic results, and partnerships with 100+ schools.",
+      keywords: ['experience', 'years', 'established', 'history', 'track record'], 
+      response: "Nourine Institute has 10+ years of excellence in education with a proven track record of 5,000+ teacher placements, 95%+ academic results, and partnerships with 100+ schools.",
       links: [
         { text: "Learn More", url: "/", section: "About our experience" }
       ]
@@ -76,7 +76,7 @@ const Chatbot: React.FC = () => {
     // Handle greetings and general queries
     if (['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening'].some(greeting => lowerInput.includes(greeting))) {
       return {
-        response: "Hello! Welcome to Noriene Institute! 😊 \n\nI'm here to help you with our educational services. Please feel free to ask me anything specific about:\n\n🏆 Teacher Placement Services (Our premier offering)\n📚 Academic Excellence (Home Tuition & Coaching)\n🎓 Admission Assistance\n📞 Contact Information\n\nWhat specific information would you like to know?",
+        response: "Hello! Welcome to Nourine Institute! 😊 \n\nI'm here to help you with our educational services. Please feel free to ask me anything specific about:\n\n🏆 Teacher Placement Services (Our premier offering)\n📚 Academic Excellence (Home Tuition & Coaching)\n🎓 Admission Assistance\n📞 Contact Information\n\nWhat specific information would you like to know?",
         links: [
           { text: "Explore Placement Services", url: "/placement-services", section: "Our flagship service" },
           { text: "View All Services", url: "/", section: "Homepage overview" }
@@ -91,7 +91,7 @@ const Chatbot: React.FC = () => {
     }
     
     return {
-      response: "I'd be happy to help you with that! For specific queries not covered on our website, please:\n\n📧 Email us: info@norieneinstitute.com\n📱 WhatsApp: +91 9650304310\n\nOur expert team will respond within 24 hours with personalized assistance.",
+      response: "I'd be happy to help you with that! For specific queries not covered on our website, please:\n\n📧 Email us: info@nourineinstitute.com\n📱 WhatsApp: +91 9650304310\n\nOur expert team will respond within 24 hours with personalized assistance.",
       links: [
         { text: "Contact Us", url: "/contact", section: "Get in touch" }
       ]
@@ -155,7 +155,7 @@ const Chatbot: React.FC = () => {
                 <Bot className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="font-semibold">Noriene Institute Assistant</h3>
+                <h3 className="font-semibold">Nourine Institute Assistant</h3>
                 <p className="text-xs text-indigo-100">Online now</p>
               </div>
             </div>

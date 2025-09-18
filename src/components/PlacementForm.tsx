@@ -22,12 +22,13 @@ const PlacementForm: React.FC = () => {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const [preferences, setPreferences] = useState<Array<{ level: string; subjects: string[] }>>([
-    { level: '', subjects: [] }
+    { role: '', subjects: [] }
   ]);
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<PlacementFormData>();
 
   const teachingLevels = ['PRT', 'TGT', 'PGT', 'Others'];
+  const jobRoles = ['PGT', 'TGT', 'Pre-Primary', 'Coordinators', 'Vice Principals', 'Principals'];
   
   const subjectsByLevel = {
     PRT: ['English', 'Hindi', 'Maths', 'EVS', 'Computer', 'Physical Education'],
@@ -36,7 +37,7 @@ const PlacementForm: React.FC = () => {
   };
 
   const addPreference = () => {
-    setPreferences([...preferences, { level: '', subjects: [] }]);
+    setPreferences([...preferences, { role: '', subjects: [] }]);
   };
 
   const removePreference = (index: number) => {
@@ -47,8 +48,8 @@ const PlacementForm: React.FC = () => {
 
   const updatePreference = (index: number, field: string, value: any) => {
     const updated = [...preferences];
-    if (field === 'level') {
-      updated[index] = { level: value, subjects: [] };
+    if (field === 'role') {
+      updated[index] = { role: value, subjects: [] };
     } else {
       updated[index] = { ...updated[index], [field]: value };
     }
@@ -86,7 +87,7 @@ const PlacementForm: React.FC = () => {
   formData.append('gender', data.gender);
   formData.append('experience', data.experience);
   formData.append('timestamp', new Date().toISOString());
-  formData.append('preferences', JSON.stringify(preferences.filter(p => p.level)));
+  formData.append('preferences', JSON.stringify(preferences.filter(p => p.role)));
 
   if (data.cv && data.cv.length > 0) {
     formData.append('attachment', data.cv[0]); // 'attachment' must match PHP $_FILES['attachment']
@@ -103,7 +104,7 @@ const PlacementForm: React.FC = () => {
       setTimeout(() => {
         setIsSubmitted(false);
         reset();
-        setPreferences([{ level: '', subjects: [] }]);
+        setPreferences([{ role: '', subjects: [] }]);
       }, 5000);
     }
   } catch (error) {
@@ -188,12 +189,12 @@ const PlacementForm: React.FC = () => {
 
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
-              City *
+              Current City *
             </label>
             <input
               {...register('city', { required: 'City is required' })}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
-              placeholder="Enter your city"
+              placeholder="Enter your current city"
             />
             {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city.message}</p>}
           </div>
@@ -216,7 +217,7 @@ const PlacementForm: React.FC = () => {
 
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Teaching Experience (Years) *
+              Experience in Your Current Role (PGT, TGT, Pre-Primary, Coordinators, Vice Principals, Principals, etc.) *
             </label>
             <select
               {...register('experience', { required: 'Experience is required' })}
@@ -231,12 +232,24 @@ const PlacementForm: React.FC = () => {
             </select>
             {errors.experience && <p className="text-red-500 text-sm mt-1">{errors.experience.message}</p>}
           </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Secondary Contact Number
+            </label>
+            <input
+              {...register('secondaryPhone')}
+              type="tel"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+              placeholder="Enter secondary contact number"
+            />
+          </div>
         </div>
 
         {/* Teaching Preferences */}
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-4">
-            Teaching Preferences *
+            Preferred Job Role *
           </label>
           
           {preferences.map((preference, index) => (
@@ -257,27 +270,27 @@ const PlacementForm: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Teaching Level
+                    Job Role
                   </label>
                   <select
-                    value={preference.level}
-                    onChange={(e) => updatePreference(index, 'level', e.target.value)}
+                    value={preference.role}
+                    onChange={(e) => updatePreference(index, 'role', e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   >
-                    <option value="">Select Level</option>
-                    {teachingLevels.map(level => (
-                      <option key={level} value={level}>{level}</option>
+                    <option value="">Select Role</option>
+                    {jobRoles.map(role => (
+                      <option key={role} value={role}>{role}</option>
                     ))}
                   </select>
                 </div>
 
-                {preference.level && ['PRT', 'TGT', 'PGT'].includes(preference.level) && (
+                {preference.role && ['Pre-Primary', 'TGT', 'PGT'].includes(preference.role) && (
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Subjects (Select multiple)
                     </label>
                     <div className="max-h-32 overflow-y-auto border border-gray-300 rounded-lg p-2">
-                      {subjectsByLevel[preference.level as keyof typeof subjectsByLevel]?.map(subject => (
+                      {subjectsByLevel[preference.role === 'Pre-Primary' ? 'PRT' : preference.role as keyof typeof subjectsByLevel]?.map(subject => (
                         <label key={subject} className="flex items-center space-x-2 py-1">
                           <input
                             type="checkbox"
@@ -374,12 +387,12 @@ const PlacementForm: React.FC = () => {
           {isSubmitting ? (
             <>
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              <span>Submitting Registration...</span>
+              <span>Processing Application...</span>
             </>
           ) : (
             <>
               <Send className="h-5 w-5" />
-              <span>Submit Registration</span>
+              <span>Apply Now</span>
             </>
           )}
         </button>

@@ -15,7 +15,7 @@ const AdmissionAssistance: React.FC = () => {
       name: 'M.Ed. (Master of Education)',
       description: 'Advanced program for educational leadership, curriculum development, and educational research.',
       duration: '2 Years',
-      eligibility: 'B.Ed. completion is mandatory with marksheet',
+      eligibility: 'B.Ed. Completion is mandatory with 50% marks',
       universities: ['Gurugram University', 'Maharishi Dayanand University']
     }
   ];
@@ -27,19 +27,9 @@ const AdmissionAssistance: React.FC = () => {
       description: 'Expert counseling for program selection, eligibility assessment, and application process.'
     },
     {
-      icon: Users,
-      title: 'Course Preparation',
-      description: 'Comprehensive preparation materials and guidance for entrance examinations.'
-    },
-    {
-      icon: Clock,
-      title: 'Flexible Classes',
-      description: 'Evening and weekend classes designed for working professionals.'
-    },
-    {
       icon: Award,
-      title: 'Study Materials',
-      description: 'Complete books, notes, and digital resources for effective learning.'
+      title: 'Complete Support',
+      description: 'End-to-end assistance from application to admission completion.'
     }
   ];
 

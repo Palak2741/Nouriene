@@ -4,12 +4,10 @@ import PlacementForm from '../components/PlacementForm';
 
 const PlacementServices: React.FC = () => {
   const roles = [
-    'Teachers (TGT, PGT, PRT)',
+    'Teachers (TGT, PGT, Pre-Primary)',
+    'Coordinators',
     'Principal',
     'Vice Principal',
-    'Lab Assistant',
-    'Admin Staff',
-    'HR Personnel'
   ];
 
   const partnerSchools = [
@@ -26,7 +24,7 @@ const PlacementServices: React.FC = () => {
   const highlights = [
     { icon: Users, number: '5,000+', label: 'Teachers Successfully Placed' },
     { icon: Building, number: '100+', label: 'Partner Schools in Gurgaon' },
-    { icon: Award, number: '15+', label: 'Years as Placement Pioneers' },
+    { icon: Award, number: '10+', label: 'Years as Placement Pioneers' },
     { icon: TrendingUp, number: '95%+', label: 'Placement Success Rate' }
   ];
 
@@ -56,10 +54,28 @@ const PlacementServices: React.FC = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Teacher Placement Services
               <span className="block text-2xl md:text-3xl text-yellow-400 mt-2 font-semibold">
-                "Gurgaon's Pioneer in School Job Placements Since 2005"
+                "Gurgaon's Pioneer in School Job Placements Since 2015"
               </span>
             </h1>
+            
+            {/* Quick Apply Button */}
+            <div className="mt-8">
+              <button
+                onClick={() => document.getElementById('placement-form')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-xl"
+              >
+                <span>Quick Apply Now</span>
+                <ArrowRight className="h-6 w-6" />
+              </button>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* Registration Form Section - Moved to Top */}
+      <section id="placement-form" className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PlacementForm />
         </div>
       </section>
 
@@ -101,10 +117,22 @@ const PlacementServices: React.FC = () => {
                 Gurgaon's First & Most Trusted Placement Service
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                Since our inception, we've revolutionized educational career placements in Gurgaon. 
+                Since 2015, we've revolutionized educational career placements in Gurgaon. 
                 Our extensive network of 100+ premium schools and proven track record of 5,000+ successful 
                 placements make us the definitive choice for educators seeking their dream positions.
               </p>
+              
+              {/* Apply Button in Content */}
+              <div className="mb-8">
+                <button
+                  onClick={() => document.getElementById('placement-form')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  <span>Fill the Form Now</span>
+                  <ArrowRight className="h-5 w-5" />
+                </button>
+              </div>
+              
               <div className="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-xl mb-8 border border-indigo-200">
                 <div className="flex items-center space-x-3 mb-4">
                   <Target className="h-6 w-6 text-indigo-600" />
@@ -190,13 +218,6 @@ const PlacementServices: React.FC = () => {
               <p className="text-sm text-gray-800">100+ Schools in our network</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Registration Form Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <PlacementForm />
         </div>
       </section>
     </div>

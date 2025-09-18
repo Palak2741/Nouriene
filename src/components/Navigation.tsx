@@ -8,8 +8,8 @@ const Navigation: React.FC = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'Academic Excellence', path: '/institute-services' },
     { name: 'Placement Services', path: '/placement-services' },
+    { name: 'Academic Excellence', path: '/institute-services' },
     { name: 'Admission Assistance', path: '/admission-assistance' },
     { name: 'Contact', path: '/contact' }
   ];
@@ -29,7 +29,7 @@ const Navigation: React.FC = () => {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold bg-gradient-to-r from-white to-indigo-100 bg-clip-text text-transparent">
-                Noriene Institute
+                Nourine Institute
               </span>
               <span className="text-xs text-yellow-400 font-semibold tracking-wide">
                 & Placement Services

@@ -13,11 +13,11 @@ const Footer: React.FC = () => {
                 <Star className="h-3 w-3 text-yellow-400 absolute -top-1 -right-1" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                Noriene Institute
+                Nourine Institute
               </span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
-              Gurgaon's Premier Educational Services Provider since 2005. Specializing in Teacher Placements (5000+ success stories) and Home Tuition (95%+ results). Your trusted partner for educational excellence.
+              Gurgaon's Premier Educational Services Provider since 2015. Specializing in Teacher Placements (5000+ success stories) and Home Tuition (95%+ results). Your trusted partner for educational excellence.
             </p>
             <div className="space-y-2 text-sm text-gray-300">
               <div className="flex items-center space-x-2">
@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
-                <span>info@norieneinstitute.com</span>
+                <span>info@nourineinstitute.com</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MessageCircle className="h-4 w-4" />
@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
           <p>
-            © 2025 Noriene Institute. All rights reserved. | 
+            © 2025 Nourine Institute. All rights reserved. | 
             <a href="/privacy-policy" className="hover:text-indigo-400">Privacy Policy</a> | 
            <a href="/terms-conditions" className="hover:text-indigo-400">Terms & Conditions</a>
           </p>
