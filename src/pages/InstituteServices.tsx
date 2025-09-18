@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Users, Monitor, CheckCircle, Award, Clock, User } from 'lucide-react';
+import { Home, Users, Monitor, CheckCircle, Award, Clock, User, ArrowRight } from 'lucide-react';
 import TuitionForm from '../components/TuitionForm';
 
 const InstituteServices: React.FC = () => {
@@ -85,6 +85,17 @@ const InstituteServices: React.FC = () => {
                 "Gurgaon's Most Trusted Home Tuition & Coaching Classes"
               </span>
             </h1>
+            
+            {/* Quick Apply Button */}
+            <div className="mt-8">
+              <button
+                onClick={() => document.getElementById('tuition-form')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-xl"
+              >
+                <span>Quick Inquiry</span>
+                <ArrowRight className="h-6 w-6" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -193,11 +204,32 @@ const InstituteServices: React.FC = () => {
               </div>
             ))}
           </div>
+          
+          <div className="text-center mt-16">
+            <div className="mb-8">
+              <div className="space-y-4">
+                <button
+                  onClick={() => document.getElementById('tuition-form')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg mr-4"
+                >
+                  <span>Start Learning Today</span>
+                  <ArrowRight className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={() => document.getElementById('tuition-form')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-8 py-4 rounded-xl font-bold hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  <span>Get Expert Tuition</span>
+                  <ArrowRight className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="tuition-form" className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <TuitionForm />
         </div>

@@ -71,6 +71,17 @@ const AdmissionAssistance: React.FC = () => {
                 "B.Ed. & M.Ed. Admission Experts in Gurgaon"
               </span>
             </h1>
+            
+            {/* Quick Apply Button */}
+            <div className="mt-8">
+              <button
+                onClick={() => document.getElementById('admission-form')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-xl"
+              >
+                <span>Apply for Assistance</span>
+                <ArrowRight className="h-6 w-6" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -136,6 +147,13 @@ const AdmissionAssistance: React.FC = () => {
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">{service.title}</h3>
                   <p className="text-gray-600 text-sm">{service.description}</p>
+                  <button
+                    onClick={() => document.getElementById('admission-form')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="mt-4 inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 rounded-lg font-semibold hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 text-sm"
+                  >
+                    <span>Get Started</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
                 </div>
               );
             })}
@@ -173,7 +191,7 @@ const AdmissionAssistance: React.FC = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="admission-form" className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <AdmissionForm />
         </div>
