@@ -28,7 +28,7 @@ const PlacementForm: React.FC = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<PlacementFormData>();
 
   const teachingLevels = ['PRT', 'TGT', 'PGT', 'Others'];
-  const jobRoles = ['PGT', 'TGT', 'Pre-Primary', 'Coordinators', 'Vice Principals', 'Principals'];
+  const jobRoles = ['PGT', 'TGT', 'Pre-Primary', 'Coordinators', 'Vice Principals', 'Principals', 'Others'];
   
   const subjectsByLevel = {
     PRT: ['English', 'Hindi', 'Maths', 'EVS', 'Computer', 'Physical Education'],
@@ -217,7 +217,7 @@ const PlacementForm: React.FC = () => {
 
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Experience in Your Current Role (PGT, TGT, Pre-Primary, Coordinators, Vice Principals, Principals, etc.) *
+              Experience in Your Current Role *
             </label>
             <select
               {...register('experience', { required: 'Experience is required' })}

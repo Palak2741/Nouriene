@@ -52,22 +52,11 @@ const PlacementServices: React.FC = () => {
               <Star className="h-5 w-5" />
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Teacher Placement Services
+              Placement Services
               <span className="block text-2xl md:text-3xl text-yellow-400 mt-2 font-semibold">
                 "Gurgaon's Pioneer in School Job Placements Since 2015"
               </span>
             </h1>
-            
-            {/* Quick Apply Button */}
-            <div className="mt-8">
-              <button
-                onClick={() => document.getElementById('placement-form')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-xl"
-              >
-                <span>Quick Apply Now</span>
-                <ArrowRight className="h-6 w-6" />
-              </button>
-            </div>
           </div>
         </div>
       </section>
