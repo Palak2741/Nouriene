@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Award, Star, Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -48,11 +49,11 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-base sm:text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li><a href="/placement-services" className="hover:text-indigo-400 transition-colors font-semibold">🌟 School Placements (Featured)</a></li>
-              <li><a href="/institute-services" className="hover:text-indigo-400 transition-colors">Academic Excellence</a></li>
-              <li><a href="/admission-assistance" className="hover:text-indigo-400 transition-colors">Admission Assistance</a></li>
-              <li><a href="/privacy-policy" className="hover:text-indigo-400 transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms-conditions" className="hover:text-indigo-400 transition-colors">Terms & Conditions</a></li>
+              <li><Link to="/placement-services" className="hover:text-indigo-400 transition-colors font-semibold">🌟 School Placements (Featured)</Link></li>
+              <li><Link to="/institute-services" className="hover:text-indigo-400 transition-colors">Academic Excellence</Link></li>
+              <li><Link to="/admission-assistance" className="hover:text-indigo-400 transition-colors">Admission Assistance</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-indigo-400 transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms-conditions" className="hover:text-indigo-400 transition-colors">Terms & Conditions</Link></li>
             </ul>
           </div>
 
@@ -71,8 +72,8 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-xs sm:text-sm text-gray-400">
           <p>
             © 2025 Nourine Institute. All rights reserved. | 
-            <a href="/privacy-policy" className="hover:text-indigo-400">Privacy Policy</a> | 
-           <a href="/terms-conditions" className="hover:text-indigo-400">Terms & Conditions</a>
+            <Link to="/privacy-policy" className="hover:text-indigo-400"> Privacy Policy</Link> | 
+            <Link to="/terms-conditions" className="hover:text-indigo-400"> Terms & Conditions</Link>
           </p>
         </div>
       </div>
