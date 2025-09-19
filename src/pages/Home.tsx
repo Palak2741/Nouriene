@@ -236,7 +236,8 @@ const Home: React.FC = () => {
 
               <div className="space-y-4 mb-8">
                 {[
-                  'Expert home tuition',
+                  'Expert coaching classes',
+                  'Home & online tuition on request',
                   'Proven teaching methods',
                   'Flexible scheduling',
                   '95%+ success rate'

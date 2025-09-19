@@ -5,22 +5,22 @@ import TuitionForm from '../components/TuitionForm';
 const InstituteServices: React.FC = () => {
   const subServices = [
     {
-      name: 'Home Tuition',
-      description: 'Personalized one-on-one sessions at your home for focused learning in Maths, Science, Accounts, Business Studies, and Economics (Classes 1-12).',
-      icon: Home,
-      features: ['Personalized attention', 'Flexible scheduling', 'Comfortable learning environment', 'Parent supervision possible']
-    },
-    {
       name: 'Coaching Classes',
-      description: 'Group classes at our institute with experienced faculty, proven to deliver results above 95% overall.',
+      description: 'Our main service - Group classes at our institute with experienced faculty, proven to deliver results above 95% overall in Maths, Science, Accounts, Business Studies, and Economics (Classes 6-12).',
       icon: Users,
       features: ['Experienced faculty', 'Group learning benefits', 'Structured curriculum', 'Peer interaction']
     },
     {
+      name: 'Home Tuition',
+      description: 'Add-on service available on request - Personalized one-on-one sessions at your home through our experienced partner teachers (Classes 6-12).',
+      icon: Home,
+      features: ['Available on request', 'Partner teachers', 'Personalized attention', 'Flexible scheduling']
+    },
+    {
       name: 'Online Tuition',
-      description: 'Flexible virtual classes for convenient learning from anywhere, maintaining our high standards of excellence.',
+      description: 'Add-on service available on request - Flexible virtual classes through our experienced partner teachers, maintaining our high standards of excellence.',
       icon: Monitor,
-      features: ['Learn from anywhere', 'Recorded sessions', 'Interactive whiteboards', 'Digital resources']
+      features: ['Available on request', 'Partner teachers', 'Learn from anywhere', 'Digital resources']
     }
   ];
 
@@ -153,25 +153,36 @@ const InstituteServices: React.FC = () => {
       </section>
 
       {/* Subjects Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Subjects We Cover</h2>
-            <p className="text-xl text-gray-600">Expert instruction across core academic subjects for Classes 1-12.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Subjects We Teach</h2>
+            <p className="text-xl text-gray-600">Expert instruction across core academic subjects for Classes 6-12.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {subjects.map((subject, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300">
                 <h3 className="text-lg font-semibold text-gray-900">{subject}</h3>
               </div>
             ))}
           </div>
+          
+          {/* Start Learning Button */}
+          <div className="text-center">
+            <button
+              onClick={() => document.getElementById('tuition-form')?.scrollIntoView({ behavior: 'smooth' })}
+              className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-xl"
+            >
+              <span>Start Learning Today</span>
+              <ArrowRight className="h-6 w-6" />
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Faculty Section */}
-      <section className="py-20 bg-gradient-to-br from-indigo-50 to-blue-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Meet Our Expert Faculty</h2>
@@ -203,27 +214,6 @@ const InstituteServices: React.FC = () => {
                 </div>
               </div>
             ))}
-          </div>
-          
-          <div className="text-center mt-16">
-            <div className="mb-8">
-              <div className="space-y-4">
-                <button
-                  onClick={() => document.getElementById('tuition-form')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg mr-4"
-                >
-                  <span>Start Learning Today</span>
-                  <ArrowRight className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={() => document.getElementById('tuition-form')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-8 py-4 rounded-xl font-bold hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  <span>Get Expert Tuition</span>
-                  <ArrowRight className="h-5 w-5" />
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </section>
