@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, BookOpen, Clock, Users, CheckCircle, Award } from 'lucide-react';
+import { GraduationCap, BookOpen, Clock, Users, CheckCircle, Award, ArrowRight } from 'lucide-react';
 import AdmissionForm from '../components/AdmissionForm';
 
 const AdmissionAssistance: React.FC = () => {
