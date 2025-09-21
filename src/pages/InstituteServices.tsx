@@ -54,7 +54,7 @@ const InstituteServices: React.FC = () => {
     },
     {
       name: 'Mr. Sandeep Yadav',
-      qualification: 'M.Tech, B.Ed',
+      qualification: 'B.Tech, B.Ed',
       experience: '13 years',
       subject: 'Science',
       specialization: 'Physics, Chemistry & Applied Sciences'
