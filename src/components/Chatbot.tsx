@@ -56,7 +56,7 @@ const Chatbot: React.FC = () => {
     },
     contact: {
       keywords: ['contact', 'phone', 'email', 'address', 'location', 'whatsapp'],
-      response: "You can reach us at:\n📧 Email: info@nourineinstitute.com\n📱 Phone/WhatsApp: +91 9650304310\n📍 Location: Gurgaon, India",
+      response: "You can reach us at:\n📧 Email: info@nourineinstitute.com\n📱 Phone/WhatsApp: +91 9650304310\n📍 Location: Sector 26, Gurgaon, Haryana",
       links: [
         { text: "Contact Page", url: "/contact", section: "Complete contact information" }
       ]

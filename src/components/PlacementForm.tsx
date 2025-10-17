@@ -24,6 +24,7 @@ const PlacementForm: React.FC = () => {
   const [preferences, setPreferences] = useState<Array<{ level: string; subjects: string[] }>>([
     { role: '', subjects: [] }
   ]);
+  const [otherRoleInputs, setOtherRoleInputs] = useState<{ [key: number]: string }>({});
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<PlacementFormData>();
 
@@ -31,7 +32,7 @@ const PlacementForm: React.FC = () => {
   const jobRoles = ['PRT', 'PGT', 'TGT', 'Pre-Primary', 'Coordinators', 'Vice Principals', 'Principals', 'Others'];
   
   const subjectsByLevel = {
-    PRT: ['English', 'Hindi', 'Maths', 'EVS', 'Computer', 'Physical Education'],
+    PRT: ['Hindi', 'English', 'Maths', 'EVS', 'Computer'],
     TGT: ['English', 'Hindi', 'Maths', 'Science', 'SST', 'Computer', 'Sanskrit', 'Physical Education', 'Spanish', 'French', 'Others'],
     PGT: ['English', 'Hindi', 'Maths', 'Physics', 'Chemistry', 'Biology', 'Accounts', 'Business Studies', 'Economics', 'Computer', 'Physical Education', 'Sanskrit', 'Others']
   };
@@ -56,6 +57,9 @@ const PlacementForm: React.FC = () => {
     setPreferences(updated);
   };
 
+  const updateOtherRoleInput = (index: number, value: string) => {
+    setOtherRoleInputs(prev => ({ ...prev, [index]: value }));
+  };
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -265,9 +269,18 @@ const PlacementForm: React.FC = () => {
                     Remove
                   </button>
                 )}
+                {preference.role === 'Others' && (
+                  <input
+                    type="text"
+                    placeholder="Please specify your role"
+                    value={otherRoleInputs[index] || ''}
+                    onChange={(e) => updateOtherRoleInput(index, e.target.value)}
+                    className="w-full px-3 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  />
+                )}
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {(preference.role && ['TGT', 'PGT', 'PRT'].includes(preference.role)) && (
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Job Role

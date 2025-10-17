@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
             <div className="space-y-2 text-sm text-gray-300">
               <div className="flex items-center space-x-2">
                 <MapPin className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
-                <span>Sec 46, Gurgaon</span>
+                <span>Sector 26, Gurgaon, Haryana</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
-                <a href="https://www.google.com/maps?q=28.4342882,77.0618873" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300">
+                <a href="https://www.google.com/maps?q=Sector+26+Gurgaon+Haryana" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300">
                   View on Google Maps
                 </a>
               </div>

@@ -32,7 +32,6 @@ const PlacementServices: React.FC = () => {
     'Extensive network of top schools in Gurgaon',
     'Personalized career guidance and interview preparation',
     'Regular updates on new openings and opportunities',
-    'Transparent process with no hidden charges',
     'Quick turnaround time for qualified candidates'
   ];
 
