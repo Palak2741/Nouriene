@@ -162,6 +162,7 @@ const Home: React.FC = () => {
                 <div className="bg-white p-4 rounded-xl shadow-md">
                   <h4 className="font-bold text-gray-900 mb-2">Positions We Fill:</h4>
                   <div className="grid grid-cols-2 gap-2 text-sm text-gray-700">
+                    <div>• PRT</div>
                     <div>• PGT</div>
                     <div>• TGT</div>
                     <div>• Pre-Primary</div>

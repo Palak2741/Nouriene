@@ -8,8 +8,6 @@ const Contact: React.FC = () => {
       icon: MapPin,
       title: 'Address',
       details: [
-        'H.No - 2427P (Basement)',
-        'Opposite Gate No - 4 of Amity International School',
         'Sec 46, Gurgaon'
       ]
     },

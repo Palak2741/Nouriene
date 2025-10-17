@@ -28,12 +28,12 @@ const PlacementForm: React.FC = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<PlacementFormData>();
 
   const teachingLevels = ['PRT', 'TGT', 'PGT', 'Others'];
-  const jobRoles = ['PGT', 'TGT', 'Pre-Primary', 'Coordinators', 'Vice Principals', 'Principals', 'Others'];
+  const jobRoles = ['PRT', 'PGT', 'TGT', 'Pre-Primary', 'Coordinators', 'Vice Principals', 'Principals', 'Others'];
   
   const subjectsByLevel = {
     PRT: ['English', 'Hindi', 'Maths', 'EVS', 'Computer', 'Physical Education'],
-    TGT: ['English', 'Hindi', 'Maths', 'Science', 'SST', 'Computer', 'Sanskrit', 'Physical Education', 'Spanish', 'French'],
-    PGT: ['English', 'Hindi', 'Maths', 'Physics', 'Chemistry', 'Biology', 'Accounts', 'Business Studies', 'Economics', 'Computer', 'Physical Education', 'Sanskrit']
+    TGT: ['English', 'Hindi', 'Maths', 'Science', 'SST', 'Computer', 'Sanskrit', 'Physical Education', 'Spanish', 'French', 'Others'],
+    PGT: ['English', 'Hindi', 'Maths', 'Physics', 'Chemistry', 'Biology', 'Accounts', 'Business Studies', 'Economics', 'Computer', 'Physical Education', 'Sanskrit', 'Others']
   };
 
   const addPreference = () => {
@@ -136,7 +136,7 @@ const PlacementForm: React.FC = () => {
   return (
     <div className="bg-white p-4 sm:p-8 rounded-2xl shadow-xl border border-gray-100">
       <div className="text-center mb-8">
-        <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Teacher Placement Registration</h3>
+        <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Join Our Educator Network</h3>
         <p className="text-gray-600 text-sm sm:text-base">Join our network of 5,000+ successfully placed educators</p>
       </div>
 
@@ -285,12 +285,13 @@ const PlacementForm: React.FC = () => {
                 </div>
 
                 {preference.role && ['Pre-Primary', 'TGT', 'PGT'].includes(preference.role) && (
+                {(preference.role && ['Pre-Primary', 'TGT', 'PGT', 'PRT'].includes(preference.role)) && (
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Subjects (Select multiple)
                     </label>
                     <div className="max-h-32 overflow-y-auto border border-gray-300 rounded-lg p-2">
-                      {subjectsByLevel[preference.role === 'Pre-Primary' ? 'PRT' : preference.role as keyof typeof subjectsByLevel]?.map(subject => (
+                      {subjectsByLevel[preference.role === 'Pre-Primary' ? 'PRT' : (preference.role === 'PRT' ? 'PRT' : preference.role) as keyof typeof subjectsByLevel]?.map(subject => (
                         <label key={subject} className="flex items-center space-x-2 py-1">
                           <input
                             type="checkbox"

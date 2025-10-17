@@ -4,7 +4,7 @@ import PlacementForm from '../components/PlacementForm';
 
 const PlacementServices: React.FC = () => {
   const roles = [
-    'Teachers (TGT, PGT, Pre-Primary)',
+    'Teachers (PRT, TGT, PGT, Pre-Primary)',
     'Coordinators',
     'Principal',
     'Vice Principal',
@@ -32,7 +32,6 @@ const PlacementServices: React.FC = () => {
     'Extensive network of top schools in Gurgaon',
     'Personalized career guidance and interview preparation',
     'Regular updates on new openings and opportunities',
-    'Post-placement support and career development',
     'Transparent process with no hidden charges',
     'Quick turnaround time for qualified candidates'
   ];
