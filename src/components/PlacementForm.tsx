@@ -257,28 +257,29 @@ const PlacementForm: React.FC = () => {
           </label>
           
           {preferences.map((preference, index) => (
-            <div key={index} className="bg-gray-50 p-4 rounded-lg mb-4 border border-gray-200">
-              <div className="flex justify-between items-center mb-3">
-                <h4 className="font-medium text-gray-900">Preference {index + 1}</h4>
+            <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 sm:p-6 rounded-xl mb-4 border-2 border-gray-200 hover:border-indigo-300 transition-all duration-200 shadow-sm hover:shadow-md">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-4">
+                <h4 className="font-semibold text-gray-900 text-base">Preference {index + 1}</h4>
                 {preferences.length > 1 && (
                   <button
                     type="button"
                     onClick={() => removePreference(index)}
-                    className="text-red-500 hover:text-red-700 text-sm font-medium"
+                    className="text-red-600 hover:text-red-700 text-sm font-medium px-3 py-1 rounded-md hover:bg-red-50 transition-colors self-start sm:self-auto"
                   >
                     Remove
                   </button>
                 )}
-                {preference.role === 'Others' && (
-                  <input
-                    type="text"
-                    placeholder="Please specify your role"
-                    value={otherRoleInputs[index] || ''}
-                    onChange={(e) => updateOtherRoleInput(index, e.target.value)}
-                    className="w-full px-3 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                  />
-                )}
               </div>
+
+              {preference.role === 'Others' && (
+                <input
+                  type="text"
+                  placeholder="Please specify your role"
+                  value={otherRoleInputs[index] || ''}
+                  onChange={(e) => updateOtherRoleInput(index, e.target.value)}
+                  className="w-full px-3 py-2 mb-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                />
+              )}
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -327,9 +328,10 @@ const PlacementForm: React.FC = () => {
           <button
             type="button"
             onClick={addPreference}
-            className="text-indigo-600 hover:text-indigo-700 font-medium text-sm"
+            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-indigo-50 to-blue-50 text-indigo-700 border-2 border-indigo-200 rounded-xl font-semibold text-sm hover:from-indigo-100 hover:to-blue-100 hover:border-indigo-300 transition-all duration-200 shadow-sm hover:shadow-md"
           >
-            + Add Another Preference
+            <span className="text-xl">+</span>
+            <span>Add Another Job Preference</span>
           </button>
         </div>
 

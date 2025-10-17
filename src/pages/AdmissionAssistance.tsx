@@ -137,22 +137,22 @@ const AdmissionAssistance: React.FC = () => {
             <p className="text-xl text-gray-600">End-to-end assistance for your educational journey.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <div key={index} className="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-600 text-white rounded-full mb-4">
-                    <Icon className="h-6 w-6" />
+                <div key={index} className="bg-white rounded-xl p-8 text-center hover:shadow-xl transition-all duration-300 border border-gray-100">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 text-white rounded-full mb-6 shadow-lg">
+                    <Icon className="h-8 w-8" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{service.title}</h3>
-                  <p className="text-gray-600 text-sm">{service.description}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                  <p className="text-gray-600 text-base mb-6">{service.description}</p>
                   <button
                     onClick={() => document.getElementById('admission-form')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="mt-4 inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 rounded-lg font-semibold hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 text-sm"
+                    className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg"
                   >
                     <span>Get Started</span>
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-5 w-5" />
                   </button>
                 </div>
               );
