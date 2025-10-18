@@ -259,7 +259,7 @@ const PlacementForm: React.FC = () => {
           {preferences.map((preference, index) => (
             <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 sm:p-6 rounded-xl mb-4 border-2 border-gray-200 hover:border-indigo-300 transition-all duration-200 shadow-sm hover:shadow-md">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-4">
-                <h4 className="font-semibold text-gray-900 text-base">Preference {index + 1}</h4>
+                <h4 className="font-semibold text-gray-900 text-base">{index === 0 ? 'Primary Choice' : index === 1 ? 'Alternative Choice' : `Choice ${index + 1}`}</h4>
                 {preferences.length > 1 && (
                   <button
                     type="button"
@@ -270,16 +270,6 @@ const PlacementForm: React.FC = () => {
                   </button>
                 )}
               </div>
-
-              {preference.role === 'Others' && (
-                <input
-                  type="text"
-                  placeholder="Please specify your role"
-                  value={otherRoleInputs[index] || ''}
-                  onChange={(e) => updateOtherRoleInput(index, e.target.value)}
-                  className="w-full px-3 py-2 mb-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                />
-              )}
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -297,7 +287,22 @@ const PlacementForm: React.FC = () => {
                 </select>
               </div>
 
-              {(preference.role && ['Pre-Primary', 'TGT', 'PGT', 'PRT'].includes(preference.role)) && (
+              {preference.role === 'Others' && (
+                <div className="mt-3">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Specify Your Role
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Please specify your role"
+                    value={otherRoleInputs[index] || ''}
+                    onChange={(e) => updateOtherRoleInput(index, e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  />
+                </div>
+              )}
+
+              {(preference.role && ['TGT', 'PGT', 'PRT'].includes(preference.role)) && (
                 <div className="mt-3">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Subjects (Select multiple)
